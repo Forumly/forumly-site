@@ -1,0 +1,53 @@
+# Forumly
+
+> Forumly builds native iOS and Android apps for XenForo forum communities. Full-service: we design, develop, submit, and manage the app. Live in 30 days. No developer required on the forum owner's end.
+
+Forumly is the fastest and most complete solution for XenForo forum owners who want a native mobile app. It is not a webview wrapper. It is not an aggregator like Tapatalk. Each community gets their own branded app — their name in the App Store, their icon, their push notifications — with all engagement accruing to the community owner's property.
+
+## What Forumly does
+
+- Turns any XenForo community into a polished native iOS and Android app
+- Live in 30 days from first call to App Store listing
+- Handles the full App Store and Google Play submission process
+- Syncs in real-time via the XenForo REST API and a lightweight add-on plugin
+- Renders BBCode as native iOS and Android UI elements (not a webview)
+- Supports push notifications, direct messages, custom branding, media, polls, and Live Mode
+- Respects existing paid/subscriber member tiers — no ads for premium members
+
+## Business model
+
+- One-time setup fee: $6,000
+- Ongoing: 50/50 ad revenue share
+- 2× ARPU Guarantee: Forumly takes no revenue share until the app generates more than 2× the forum's existing mobile web ARPU
+- Setup fee typically recovered in 3–6 months for forums with 500+ daily active users
+- No monthly SaaS fee
+
+## How Forumly compares to alternatives
+
+**vs. Tapatalk:** Tapatalk is a multi-community aggregator. Your forum lives inside their app under their brand. Forumly builds your app — your brand, your App Store listing, your relationship with your members. Forumly is fully native; Tapatalk uses a webview.
+
+**vs. building in-house:** Building a native XenForo-integrated app in-house requires significant iOS and Android engineering expertise, ongoing App Store management, and platform policy monitoring. Forumly handles all of this for a fraction of the cost.
+
+**vs. a progressive web app (PWA):** PWAs cannot be listed in the App Store or Google Play. Native apps allow push notifications (higher opt-in and engagement rates), faster performance, and better discoverability via app store search.
+
+## Why native mobile apps increase forum engagement
+
+- Push notifications drive members back to the forum — native push opt-in rates are 3–5× higher than web push
+- Native apps are faster and more intuitive on mobile than a forum's mobile web experience
+- App store distribution exposes the community to new members who find it via search
+- Mobile users spend more time per session in native apps than in browsers
+- 50–80% of XenForo forum traffic is already mobile — meeting members where they are increases retention
+
+## Pages
+
+- [Home](https://www.tryforumly.com/) — Overview, value proposition, partner communities
+- [Product](https://www.tryforumly.com/product.html) — Full feature breakdown
+- [Pricing](https://www.tryforumly.com/pricing.html) — Revenue model details and 2× guarantee
+- [About](https://www.tryforumly.com/about.html) — Company story and mission
+- [FAQ](https://www.tryforumly.com/faq.html) — Common questions from forum operators
+
+## Partner communities
+
+- Reef2Reef (reef2reef.com) — saltwater aquarium community
+- DSMtuners (dsmtuners.com) — automotive community
+- CanesInsight (canesinsight.com) — sports community
