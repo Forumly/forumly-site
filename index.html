@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forumly — Native Apps for XenForo Communities</title>
+<meta name="description" content="Forumly turns any XenForo community into a polished native iOS &amp; Android app in 30 days. More engagement, more revenue, direct channel ownership.">
+<link rel="stylesheet" href="css/forumly.css">
+<style>
+/* ── Hero ── */
+.hero {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  background: var(--warm);
+  padding: clamp(48px, 7vw, 96px) 0 0;
+  overflow: visible;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 32px;
+  align-items: flex-end;
+}
+.hero-content {
+  padding-right: 16px;
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+.hero-illustration {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.hero-illustration img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 24px 48px rgba(35,61,77,0.12));
+}
+
+/* ── Partners ── */
+.partners { padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.partners-inner { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+
+/* ── Problem ── */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 56px;
+}
+.problem-col {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-md);
+  padding: 40px;
+}
+.problem-col + .problem-col { border-left: none; border-radius: 0 var(--r-md) var(--r-md) 0; }
+.problem-col:first-child { border-radius: var(--r-md) 0 0 var(--r-md); }
+.problem-stat {
+  display: inline-block;
+  background: rgba(252, 202, 70, 0.12);
+  border: 1px solid rgba(252,202,70,0.25);
+  border-radius: 4px;
+  color: var(--yellow);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+}
+.problem-bridge {
+  margin-top: 48px;
+  padding: 32px 40px;
+  background: rgba(254,127,45,0.1);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+}
+
+/* ── Benefits ── */
+.benefits-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px 40px;
+  margin-top: 64px;
+}
+.benefit {
+  display: flex;
+  flex-direction: column;
+}
+.benefit-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1;
+}
+.benefit-icon svg {
+  width: 24px; height: 24px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.benefit h3 { font-size: clamp(16px,1.4vw,19px); font-weight:700; margin-bottom:10px; color:var(--dark); }
+.benefit p  { font-size:14.5px; color:var(--muted); line-height:1.68; }
+
+/* ── Stats bar ── */
+.stats-bar { padding: 72px 0; }
+.stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.stat-cell {
+  padding: 0 32px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+.stat-cell:last-child { border-right: none; }
+
+/* ── Screenshot Carousel ── */
+.screenshot-carousel {
+  position: relative;
+  margin-top: 56px;
+}
+.carousel-fade {
+  position: relative;
+  overflow: hidden;
+}
+.carousel-fade::before,
+.carousel-fade::after {
+  display: none;
+}
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 24px 64px;
+  align-items: flex-end;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-item {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+.carousel-btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  transition: all 0.18s;
+  font-size: 18px;
+  color: var(--dark);
+}
+.carousel-btn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+}
+/* 66% of phone--lg (300px) */
+.carousel-item .phone { width: 198px; }
+
+/* ── How it works ── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 56px;
+  position: relative;
+}
+.steps-grid::after {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--yellow) 0%, transparent 100%);
+  z-index: 0;
+}
+.step {
+  padding: 0 28px;
+  position: relative;
+  z-index: 1;
+}
+.step:first-child { padding-left: 0; }
+.step-num {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.step-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.step-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* ── Testimonial ── */
+.testimonial-quote {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  padding: var(--sv) 0;
+}
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 96px;
+  color: var(--yellow);
+  line-height: 0.6;
+  margin-bottom: 24px;
+  display: block;
+  opacity: 0.7;
+}
+.quote-text {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.8vw, 38px);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+.quote-attr { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.quote-name { font-size: 15px; font-weight: 600; color: var(--white); }
+.quote-role { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+/* ── Final CTA ── */
+.final-cta { text-align: center; padding: var(--sv) 0; }
+.final-cta .heading-1 { max-width: 640px; margin: 0 auto 16px; }
+.final-cta .lead { max-width: 440px; margin: 0 auto 36px; }
+.final-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.reassure { font-size: 13px; color: var(--muted); margin-top: 16px; }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-illustration { margin: 0 auto; max-width: 360px; }
+  .hero-content { padding-right: 0; padding-bottom: 0; }
+  .hero-ctas { justify-content: center; }
+  .problem-grid { grid-template-columns: 1fr; gap: 12px; }
+  .problem-col { border-radius: var(--r-md) !important; border: 1px solid rgba(255,255,255,0.08) !important; }
+  .benefits-row { grid-template-columns: 1fr 1fr; gap: 32px 28px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0; }
+  .stat-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
+  .stat-cell:last-child, .stat-cell:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+  .steps-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .steps-grid::after { display: none; }
+  .step { padding: 0; }
+  .preview-phones .phone { transform: none !important; }
+}
+@media (max-width: 520px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: 1fr; }
+  .stat-cell { border-right: none !important; }
+}
+</style>
+<link id="gfont-Poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="site-nav" id="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Forumly<em>.</em></a>
+    <div class="nav-links" id="navLinks">
+      <a href="product.html">Product</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-login">Login</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero" data-screen-label="Hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow">
+</span>
+        <h1 class="display" style="margin-top: 20px; font-size: clamp(32px,4vw,58px); font-family: Poppins">
+          iOS &amp; Android apps<br>
+          <em style="color:var(--orange);">for your XenForo community.</em>
+        </h1>
+        <p class="lead" style="margin-top:24px;max-width:480px;">
+          Your forum deserves a real app. Forumly turns any XenForo community into a polished, monetizable native app —
+          live in 30 days. Own your channel. Stop losing members to bad mobile experiences.
+        </p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
+          <a href="product.html" class="btn btn-outline--dark btn-lg">See How It Works</a>
+        </div>
+      </div>
+      <div class="hero-illustration" aria-hidden="false">
+          <img src="uploads/hero-infographic.png" alt="Your existing XenForo forum transformed into branded native mobile apps" style="margin: 0px">
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Partner Strip ── -->
+<div class="partners" data-screen-label="Partners">
+  <div class="wrap">
+    <div class="partners-inner">
+      <span class="partner-lede">Trusted by</span>
+      <a href="https://reef2reef.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#FF6F1E;">Reef2Reef</a>
+      <a href="https://dsmtuners.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#BB0000;">DSMtuners</a>
+      <a href="https://www.canesinsight.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#DF7942;">CanesInsight</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Problem ── -->
+<section class="sec sec--dark" id="problem" data-screen-label="Problem">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">The problem</span>
+      <h2 class="heading-1" style="margin-top:16px;">
+        Your Forum's Growth Is Under Attack.
+      </h2>
+    </div>
+    <div class="problem-grid reveal">
+      <div class="problem-col">
+        <span class="problem-stat">50–80% of traffic is mobile</span>
+        <h3 class="heading-3" style="color:var(--white);margin-bottom:14px;">The Mobile Experience Is Broken</h3>
+        <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.7;">Most of your members open your forum on a phone but the mobile UX is clunky leading to high bounce rates and stalled growth. Mobile web apps can't compete with the native apps your members use everywhere else.</p>
+      </div>
+      <div class="problem-col">
+        <span class="problem-stat">~25% decline in search volume by 2026</span>
+        <h3 class="heading-3" style="color:var(--white);margin-bottom:14px;">AI Is Squeezing Organic Discovery</h3>
+        <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.7;">60% of Google searches now end without a click. AI Overviews answer queries directly on the results page. Communities depending on SEO-driven discovery are watching traffic erode, with no clear recovery path.</p>
+      </div>
+    </div>
+    <div class="problem-bridge reveal">
+      <p style="font-family:var(--font-display);font-size:clamp(18px,2.2vw,26px);font-weight:700;color:var(--white);">The answer isn't more SEO. It's owning your channel.</p>
+      <p style="color:rgba(255,255,255,0.6);font-size:15px;margin-top:8px;">A native app gives you direct access to your members and minimizes algorithm dependency. All while enhancing the user experience and boosting engagement so you can grow your community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Benefits ── -->
+<section class="sec" id="benefits" data-screen-label="Benefits">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Why native</span>
+      <h2 class="heading-1" style="margin-top:16px;">
+        The experience your<br>members have been waiting for.
+      </h2>
+    </div>
+    <div class="benefits-row reveal">
+
+      <div class="benefit">
+        <div class="benefit-icon" style="background:var(--orange);font-size:22px;">📱</div>
+        <h3>Built for Mobile-First Behavior</h3>
+        <p>Push notifications, infinite scrolling, DMs, live mode and more. The native UX your members expect. No browser lag and pop ups. </p>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon" style="background:var(--teal);font-size:22px;">⚡</div>
+        <h3>Designed to Skyrocket Engagement</h3>
+        <p>App users spend 2.5× more total time per session and open the app 6-12× more often than mobile web users.</p>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon" style="background:var(--yellow);font-size:22px;">📈</div>
+        <h3>Dramatically Increased Revenue Per User</h3>
+        <p>More and longer sessions, zero ad blockers and ads built for native apps which command stronger CPMs lead to increased ARPU.</p>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon" style="background:var(--sage);font-size:22px;">🔔</div>
+        <h3>An Owned Channel</h3>
+        <p>No algorithm dependency and a home screen presence. Your brand in the App Store. Your reviews. Your relationship.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats Bar ── -->
+<section class="stats-bar sec--dark" data-screen-label="Stats">
+  <div class="wrap">
+    <div class="stats-inner reveal">
+      <div class="stat-cell">
+        <span class="stat-num">10×</span>
+        <span class="stat-label">Engaged time per user</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">4.8<span style="font-size:0.5em;">/5</span></span>
+        <span class="stat-label">App Store rating</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">30<span style="font-size:0.55em;color:rgba(255,255,255,0.5);">days</span></span>
+        <span class="stat-label">From call to live app</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">2×</span>
+        <span class="stat-label">ARPU GUARANTEE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── App Preview ── -->
+<section class="sec sec--warm" id="preview" data-screen-label="App Preview">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow eyebrow--dark">The product</span>
+      <h2 class="heading-1" style="margin-top:16px;margin-left:auto;margin-right:auto;">
+        A frictionless interface designed for the next generation of online communities.
+      </h2>
+      <p class="lead" style="margin-top:16px;max-width:520px;margin-left:auto;margin-right:auto;">
+        Every screen is custom-branded for your community. Your logo, your colors, your identity.
+      </p>
+    </div>
+    <div class="screenshot-carousel reveal">
+      <div class="carousel-fade">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/pasted-1780509333627-0.png" alt="User profile screen"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/pasted-1780509312241-0.png" alt="Chats list screen"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/pasted-1780509300021-0.png" alt="Direct message screen"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/pasted-1780509319614-0.png" alt="Search screen"></div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-btn" id="carouselNext" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ── Testimonial ── -->
+<section class="sec--dark" id="testimonial" data-screen-label="Testimonial">
+  <div class="wrap">
+    <div class="testimonial-quote reveal">
+      <span class="quote-mark">&ldquo;</span>
+      <p class="quote-text" style="font-size:clamp(20px,2.5vw,34px);">
+        With our new app we not only have a tool that can help us stay viable, but we have 
+        something that gives us other avenues for growth in an ever evolving social landscape.
+      </p>
+      <div class="quote-attr">
+        <span class="quote-name">David Hammontree &mdash; <span style="color:var(--orange);">@revhtree</span></span>
+        <span class="quote-role">Owner, <a href="https://www.reef2reef.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px;">Reef2Reef.com</a> &mdash; largest reef aquarium community online</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section class="final-cta" data-screen-label="CTA">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow eyebrow--dark" style="display:block;text-align:center;margin-bottom:20px;">Get started</span>
+      <h2 class="heading-1" style="margin:0 auto 16px;">
+        Ready to grow your community?
+      </h2>
+      <p class="lead" style="max-width:420px;margin:0 auto 36px;">
+        No long-term contracts. Live in 30 days.
+      </p>
+      <div class="final-cta-btns">
+        <a href="#" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
+        <a href="pricing.html" class="btn btn-outline--dark btn-lg">See Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Forumly<em>.</em></div>
+        <p class="footer-tag">Native apps for XenForo communities. Own your channel. Grow your community.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="product.html">Overview</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Forumly. All rights reserved.</span>
+      <span>Built for the communities that matter.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+(function () {
+  var track = document.getElementById('carouselTrack');
+  var prev  = document.getElementById('carouselPrev');
+  var next  = document.getElementById('carouselNext');
+  if (!track) return;
+
+  function scrollBy(dir) {
+    var item = track.querySelector('.carousel-item');
+    if (!item) return;
+    var gap = parseInt(getComputedStyle(track).gap) || 24;
+    track.scrollBy({ left: dir * (item.offsetWidth + gap), behavior: 'smooth' });
+  }
+
+  next.addEventListener('click', function () { scrollBy(1); });
+  prev.addEventListener('click', function () { scrollBy(-1); });
+})();
+</script>
+</body>
+</html>

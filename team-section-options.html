@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Section — Design Options</title>
+<link rel="stylesheet" href="css/forumly.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+
+<style>
+  /* Shared tokens for artboard content */
+  .ab {
+    --dark:   #233D4D;
+    --orange: #FE7F2D;
+    --yellow: #FCCA46;
+    --sage:   #A1C181;
+    --teal:   #619B8A;
+    --warm:   #F7F5F2;
+    --muted:  #556676;
+    --border: rgba(0,0,0,0.08);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #233D4D;
+    background: #fff;
+  }
+  .ab-wrap { padding: 56px 64px; }
+
+  /* ── Section header shared ── */
+  .ab-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #556676; display: block; margin-bottom: 10px;
+  }
+  .ab-h1 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 40px; font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.018em; color: #233D4D; margin-bottom: 12px;
+  }
+  .ab-lead { font-size: 16px; color: #556676; line-height: 1.65; max-width: 520px; }
+
+  /* ══════════════════════════════════
+     OPTION A — Split editorial
+  ══════════════════════════════════ */
+  .oa-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    margin-top: 48px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .oa-photo {
+    background: #A1C181;
+    min-height: 360px;
+    position: relative;
+    overflow: hidden;
+  }
+  .oa-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .oa-body {
+    padding: 40px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .oa-name {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 28px; font-weight: 700; color: #233D4D;
+    margin-bottom: 4px;
+  }
+  .oa-role {
+    font-size: 13px; font-weight: 600; color: #FE7F2D;
+    letter-spacing: 0.04em; margin-bottom: 24px;
+  }
+  .oa-bio {
+    font-size: 15px; color: #556676; line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .oa-quote {
+    border-left: 3px solid #FCCA46;
+    padding: 12px 20px;
+    background: #F7F5F2;
+    border-radius: 0 8px 8px 0;
+  }
+  .oa-quote p {
+    font-size: 14px; font-style: italic; color: #233D4D; line-height: 1.6; margin-bottom: 6px;
+  }
+  .oa-quote cite {
+    font-size: 12px; color: #556676; font-style: normal;
+  }
+
+  /* ══════════════════════════════════
+     OPTION B — Dark feature card
+  ══════════════════════════════════ */
+  .ob-card {
+    margin-top: 48px;
+    background: #233D4D;
+    border-radius: 16px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 0;
+    min-height: 380px;
+  }
+  .ob-photo {
+    position: relative;
+    overflow: hidden;
+  }
+  .ob-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .ob-photo-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 60%, #233D4D 100%);
+  }
+  .ob-body {
+    padding: 44px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+  }
+  .ob-name {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 30px; font-weight: 700; color: #fff;
+    margin-bottom: 4px;
+  }
+  .ob-role {
+    font-size: 13px; font-weight: 600; color: #FE7F2D;
+    letter-spacing: 0.04em; margin-bottom: 24px;
+  }
+  .ob-bio {
+    font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 28px;
+  }
+  .ob-quote-mark {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 56px; font-weight: 800; color: #FCCA46;
+    line-height: 0.7; display: block; margin-bottom: 12px; opacity: 0.8;
+  }
+  .ob-quote-text {
+    font-size: 15px; font-style: italic; color: #fff; line-height: 1.65; margin-bottom: 10px;
+  }
+  .ob-quote-cite {
+    font-size: 12px; color: rgba(255,255,255,0.45); font-style: normal;
+  }
+
+  /* ══════════════════════════════════
+     OPTION C — Open editorial
+  ══════════════════════════════════ */
+  .oc-inner {
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 2px solid rgba(0,0,0,0.08);
+  }
+  .oc-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .oc-ident { flex: 1; }
+  .oc-name {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 52px; font-weight: 800; line-height: 1;
+    color: #233D4D; letter-spacing: -0.03em; margin-bottom: 10px;
+  }
+  .oc-role {
+    font-size: 14px; font-weight: 600; color: #FE7F2D;
+    letter-spacing: 0.05em;
+  }
+  .oc-photo {
+    width: 160px; height: 160px; border-radius: 50%;
+    overflow: hidden; flex-shrink: 0;
+    background: #A1C181;
+    border: 4px solid #FCCA46;
+  }
+  .oc-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .oc-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .oc-bio {
+    font-size: 15px; color: #556676; line-height: 1.75;
+  }
+  .oc-pullquote {
+    background: #F7F5F2;
+    border-radius: 12px;
+    padding: 32px 36px;
+  }
+  .oc-pullquote-mark {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 48px; font-weight: 800; color: #FCCA46;
+    line-height: 0.7; display: block; margin-bottom: 16px;
+  }
+  .oc-pullquote-text {
+    font-size: 15px; font-style: italic; color: #233D4D;
+    line-height: 1.65; margin-bottom: 14px;
+  }
+  .oc-pullquote-cite {
+    font-size: 12px; color: #556676;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { DesignCanvas, DCSection, DCArtboard } = window;
+
+const PHOTO = "uploads/dall-e nate.png";
+
+const SectionHeader = () => (
+  <div style={{marginBottom: 0}}>
+    <span className="ab-eyebrow">The team</span>
+    <h2 className="ab-h1">Small team. Big commitment.</h2>
+    <p className="ab-lead">We're builders and community people, a small but focused team that cares about getting it right for every partner.</p>
+  </div>
+);
+
+/* ── Option A: Split editorial ── */
+const OptionA = () => (
+  <div className="ab">
+    <div className="ab-wrap">
+      <SectionHeader />
+      <div className="oa-card">
+        <div className="oa-photo">
+          <img src={PHOTO} alt="Nathan" />
+        </div>
+        <div className="oa-body">
+          <div className="oa-name">Nathan</div>
+          <div className="oa-role">Founder &amp; CEO &mdash; nathan@tryforumly.com</div>
+          <p className="oa-bio">
+            My name's Nathan. I've been a mobile developer since 2013. Previously, I had a hardware and software startup that made sensors and IoT software — where I got to know the owner of Reef2Reef and learned about XenForo.
+          </p>
+          <div className="oa-quote">
+            <p>&ldquo;It's the first app I open every morning. Before Reddit, before Gmail, before NYT. I roll over, grab my phone and check. I don't know if there's a higher honor I can bestow on an app.&rdquo;</p>
+            <cite>Matt Burns, TechCrunch — on Nathan's previous app</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Option B: Dark feature card ── */
+const OptionB = () => (
+  <div className="ab">
+    <div className="ab-wrap">
+      <SectionHeader />
+      <div className="ob-card">
+        <div className="ob-photo">
+          <img src={PHOTO} alt="Nathan" />
+          <div className="ob-photo-overlay"></div>
+        </div>
+        <div className="ob-body">
+          <div className="ob-name">Nathan</div>
+          <div className="ob-role">Founder &amp; CEO &mdash; nathan@tryforumly.com</div>
+          <p className="ob-bio">
+            My name's Nathan. I've been a mobile developer since 2013. Previously, I had a hardware and software startup with some friends that made sensors and internet of things software — where I got to know the owner of Reef2Reef and learned about XenForo.
+          </p>
+          <span className="ob-quote-mark">&ldquo;</span>
+          <p className="ob-quote-text">It's the first app I open every morning. Before Reddit, before Gmail, before NYT. I roll over, grab my phone and check. I don't know if there's a higher honor I can bestow on an app.</p>
+          <span className="ob-quote-cite">Matt Burns, TechCrunch — on Nathan's previous app</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Option C: Open editorial ── */
+const OptionC = () => (
+  <div className="ab">
+    <div className="ab-wrap">
+      <SectionHeader />
+      <div className="oc-inner">
+        <div className="oc-top">
+          <div className="oc-ident">
+            <div className="oc-name">Nathan</div>
+            <div className="oc-role">Founder &amp; CEO &mdash; nathan@tryforumly.com</div>
+          </div>
+          <div className="oc-photo">
+            <img src={PHOTO} alt="Nathan" />
+          </div>
+        </div>
+        <div className="oc-columns">
+          <p className="oc-bio">
+            My name's Nathan. I've been a mobile developer since 2013.<br /><br />
+            Previously, I had a hardware and software startup with some friends that made sensors and internet of things software (where I got to know the owner of Reef2Reef and learned about XenForo).
+          </p>
+          <div className="oc-pullquote">
+            <span className="oc-pullquote-mark">&ldquo;</span>
+            <p className="oc-pullquote-text">It's the first app I open every morning. Before Reddit, before Gmail, before NYT. I roll over, grab my phone and check. I don't know if there's a higher honor I can bestow on an app.</p>
+            <span className="oc-pullquote-cite">Matt Burns, TechCrunch — on Nathan's previous app</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+function App() {
+  return (
+    <DesignCanvas>
+      <DCSection id="team" title="Team Section" subtitle="3 layout options — same copy throughout">
+        <DCArtboard id="a" label="A · Split Editorial" width={860}>
+          <OptionA />
+        </DCArtboard>
+        <DCArtboard id="b" label="B · Dark Feature" width={860}>
+          <OptionB />
+        </DCArtboard>
+        <DCArtboard id="c" label="C · Open Editorial" width={860}>
+          <OptionC />
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

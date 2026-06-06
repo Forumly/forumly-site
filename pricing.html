@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Forumly</title>
+<meta name="description" content="Forumly's partner program is designed to maximize your community's revenue. We pay you. 50/50 ad revenue share. Live in 30 days.">
+<link rel="stylesheet" href="css/forumly.css">
+<style>
+/* ── Hero ── */
+.pricing-hero {
+  background: var(--dark);
+  padding: clamp(80px, 10vw, 140px) 0 clamp(64px, 8vw, 100px);
+  position: relative;
+  overflow: hidden;
+}
+.pricing-hero::after { display: none; }
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(200px, 28vw, 380px);
+  font-weight: 800;
+  color: rgba(255,255,255,0.03);
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ── Pricing cards ── */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 56px;
+}
+.pricing-card {
+  border-radius: var(--r-xl);
+  padding: 48px 44px;
+  border: 1px solid var(--border);
+  position: relative;
+  background: var(--white);
+}
+.pricing-card--alt {
+  background: var(--warm);
+  border-color: transparent;
+}
+.pricing-card--featured {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 1px var(--orange), 0 24px 64px rgba(254,127,45,0.1);
+}
+.price-tag {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--dark);
+  margin: 20px 0 4px;
+}
+.price-period { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+.pricing-badge {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--black);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--r-sm);
+  position: absolute;
+  top: -14px;
+  left: 44px;
+}
+.pricing-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 28px 0;
+}
+
+/* ── Partner program ── */
+.partner-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+.partner-feature {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.partner-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--r-md);
+  background: rgba(252,202,70,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.partner-feature h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--white);
+}
+.partner-feature p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+/* ── Comparison table ── */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  font-size: 15px;
+}
+.comparison-table th {
+  padding: 16px 24px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 2px solid var(--border);
+}
+.comparison-table td {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+.comparison-table tr:last-child td { border-bottom: none; }
+.comparison-table td:first-child { color: var(--muted); font-size: 14px; }
+.comparison-table td.val { font-weight: 600; color: var(--dark); }
+.comparison-table td.val--green { color: var(--teal); }
+.comparison-table td.val--orange { color: var(--orange); font-family: var(--font-display); font-size: 18px; }
+.comparison-table .row-highlight { background: rgba(252,202,70,0.06); }
+
+/* ── What's included ── */
+.included-section {
+  margin-top: 48px;
+  padding: 44px 48px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--white);
+}
+.included-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 32px;
+}
+.included-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.included-item svg {
+  width: 16px; height: 16px;
+  stroke: var(--sage);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── 2x Guarantee ── */
+.guarantee-block {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background: var(--dark);
+  padding: 64px 56px;
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+}
+.guarantee-block::before {
+  content: '2×';
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(160px, 22vw, 280px);
+  font-weight: 800;
+  color: rgba(252,202,70,0.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.guarantee-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(252,202,70,0.12);
+  border: 1px solid rgba(252,202,70,0.3);
+  color: var(--yellow);
+  border-radius: 4px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.guarantee-num {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 9vw, 120px);
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 0.9;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.guarantee-num span {
+  display: block;
+  font-size: 0.22em;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+@media (max-width: 860px) {
+  .included-grid { grid-template-columns: 1fr 1fr; }
+  .guarantee-block { grid-template-columns: 1fr; padding: 40px 28px; }
+  .guarantee-block::before { display: none; }
+}
+@media (max-width: 480px) {
+  .included-grid { grid-template-columns: 1fr; }
+  .included-section { padding: 28px 20px; }
+}
+
+/* ── No upfront card ── */
+.alt-path {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 56px;
+  background: var(--dark);
+  border-radius: var(--r-xl);
+  color: var(--white);
+  margin-top: 48px;
+}
+
+/* ── Steps ── */
+.pricing-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.ps { border-left: 3px solid var(--yellow); padding-left: 20px; }
+.ps-num {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.ps-title { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+.ps-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+@media (max-width: 860px) {
+  .pricing-cards { grid-template-columns: 1fr; }
+  .partner-features { grid-template-columns: 1fr; }
+  .alt-path { grid-template-columns: 1fr; padding: 40px 28px; gap: 32px; }
+  .pricing-steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .pricing-steps { grid-template-columns: 1fr; }
+  .comparison-table { font-size: 13px; }
+  .comparison-table th, .comparison-table td { padding: 14px 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Forumly<em>.</em></a>
+    <div class="nav-links" id="navLinks">
+      <a href="product.html">Product</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-login">Login</a>
+      <a href="#" class="btn btn-primary btn-sm">Book a Demo</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="pricing-hero" data-screen-label="Hero">
+  <div class="wrap">
+    <div class="reveal" style="position:relative;z-index:1;">
+      <span class="eyebrow">Revenue model</span>
+      <h1 class="display" style="margin-top:20px;color:var(--white);max-width:640px;">
+        We Pay You<em style="color:var(--yellow);">.</em>
+      </h1>
+      <p style="font-family:var(--font-display);font-size:clamp(18px,2vw,26px);color:rgba(255,255,255,0.65);margin-top:12px;font-style:italic;">
+        (after a one-time upfront investment)
+      </p>
+      <p class="lead lead--white" style="margin-top:24px;max-width:560px;">Think YouTube's model, applied to your forum. We build and operate your native app, then share ad revenue 50/50. But only if we more than 2x your ARPU. We only win when you win.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing Cards ── -->
+<section class="sec sec--warm" data-screen-label="Pricing Options">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow eyebrow--dark">Choose your path</span>
+      <h2 class="heading-1" style="margin-top:16px;">
+</h2>
+    </div>
+    <div class="pricing-cards reveal">
+
+      <!-- Standard -->
+      <div class="pricing-card pricing-card--featured">
+        <span class="pricing-badge">Most Popular</span>
+        <span class="eyebrow eyebrow--dark">Standard Integration</span>
+        <div class="price-tag">$6,000</div>
+        <p class="price-period">One-time setup fee &mdash; then 50/50 revenue share</p>
+        <p style="font-size:14px;color:var(--muted);background:rgba(161,193,129,0.12);border:1px solid rgba(161,193,129,0.3);border-radius:var(--r-md);padding:12px 16px;margin-bottom:24px;">
+          Self-liquidating investment. Typically paid off in 3–6 months for forums with 500+ daily active users.
+        </p>
+        <div style="margin-top:32px;">
+          <a href="#" class="btn btn-primary btn-full btn-lg">Book a Demo &rarr;</a>
+        </div>
+      </div>
+
+      <!-- No Upfront -->
+      <div class="pricing-card pricing-card--alt">
+        <span class="eyebrow eyebrow--dark">No Upfront Option</span>
+        <div class="price-tag" style="color:var(--teal);">$0</div>
+        <p class="price-period">Waive the setup fee — we recoup from revenue at a 2× multiple</p>
+        <p style="font-size:14px;color:var(--muted);background:rgba(97,155,138,0.1);border:1px solid rgba(97,155,138,0.2);border-radius:var(--r-md);padding:12px 16px;margin-bottom:24px;">Instead of paying upfront, we take the ad revenue until we recoup $12,000, then revert to 50/50 permanently.</p>
+        <div style="margin-top:32px;">
+          <a href="#" class="btn btn-outline--dark btn-full btn-lg">Talk to Us &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2x Guarantee -->
+    <div class="guarantee-block reveal">
+      <div style="position:relative;z-index:1;">
+        <div class="guarantee-badge">&#9679; The Guarantee</div>
+        <h2 class="heading-1" style="color:var(--white);margin-bottom:20px;">
+          If we don't at least double your mobile ARPU — we take nothing.
+        </h2>
+        <p style="color:rgba(255,255,255,0.65);font-size:16px;line-height:1.72;max-width:520px;margin-bottom:28px;">Our 2× Guarantee is simple: if the app doesn't generate at least twice your current mobile ad revenue per user, our revenue share drops to 0% until it does. We don't earn until you're winning. We believe this keeps us aligned as partners.</p>
+        <div style="display:flex;gap:32px;flex-wrap:wrap;">
+          <div>
+            <div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--yellow);">50 / 50</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Revenue split</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--yellow);">$0</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">We take until you 2&times;</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--yellow);">Always</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Aligned incentives</div>
+          </div>
+        </div>
+      </div>
+      <div class="guarantee-num">
+        2&times;
+        <span>Guarantee</span>
+      </div>
+    </div>
+
+    <!-- What's included -->
+    <div class="included-section reveal">
+      <p class="included-label">EVERYTHING INCLUDED</p>
+      <div class="included-grid">
+        <div class="included-item">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>Fully native iOS &amp; Android app</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span>Custom branding with your logos, colors and identity</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span>Push notifications</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <span>Live in 30 days, start to finish</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span>2x guarantee on mobile ARPU</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>App Store &amp; Google Play submission handled</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>Lightweight plugin that extends XF API</span>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Ongoing updates &amp; support from Forumly team</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad-free option -->
+    <div class="alt-path reveal">
+      <div>
+        <span class="eyebrow">Premium communities</span>
+        <h3 class="heading-2" style="color:var(--white);margin-top:16px;margin-bottom:16px;">
+          Ad-Free Communities
+        </h3>
+        <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.7;margin-bottom:24px;">Running a private or subscriber-supported community where ads don't fit? A flat monthly rate covers everything from launching the apps, updates, support, and ongoing development. No revenue share. </p>
+        <a href="#" class="btn btn-outline">Talk to Us &rarr;</a>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:clamp(52px,7vw,88px);font-weight:800;color:var(--yellow);line-height:1;">$1,000</div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.55);margin-top:8px;font-weight:500;">per month, flat rate</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;">Hosting · Updates · Support · All included</div>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+<!-- ── Partner Program ── -->
+<section class="sec sec--dark" id="partner-program" data-screen-label="Partner Program">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Revenue partnership</span>
+      <h2 class="heading-1" style="margin-top:16px;">
+        The Partner Program.<br>
+        <em style="color:var(--yellow);">Designed to align us towards your goals.</em>
+      </h2>
+    </div>
+    <div class="partner-features reveal">
+      <div class="partner-feature">
+        <div class="partner-icon">⚡</div>
+        <div>
+          <h4>50/50 Ad Revenue Share</h4>
+          <p>We split in-app ad revenue above your current mobile ARPU baseline. We only make money if we make you money aligning us 100%.</p>
+        </div>
+      </div>
+      <div class="partner-feature">
+        <div class="partner-icon">🛡</div>
+        <div>
+          <h4>The 2× Guarantee</h4>
+          <p>If we don't at least double your mobile ARPU, we take 0% of revenue until we do. Our incentives are perfectly aligned with yours.</p>
+        </div>
+      </div>
+      <div class="partner-feature">
+        <div class="partner-icon">👑</div>
+        <div>
+          <h4>Premium Stays Premium</h4>
+          <p>Your existing ad-free subscribers never see ads in the app. Their experience is protected and their membership value is honored.</p>
+        </div>
+      </div>
+      <div class="partner-feature">
+        <div class="partner-icon">📈</div>
+        <div>
+          <h4>Performance-Driven Partnership</h4>
+          <p>Our team is directly incentivized to optimize your app constantly. Ad placements, engagement features, update cadence. We win when you win.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:56px;text-align:center;" class="reveal">
+      <a href="#" class="btn btn-primary btn-lg">Book a Demo &amp; Get Started &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Comparison ── -->
+<section class="sec" data-screen-label="Comparison">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow eyebrow--dark">The math</span>
+      <h2 class="heading-1" style="margin-top:16px;">You make more money. Full stop.</h2>
+      <p class="lead" style="margin-top:16px;max-width:520px;">Increased sessions, longer sessions, no ad blockers and native app ad inventory which earns significantly more per user than mobile web. Here's a conservative breakdown.</p>
+    </div>
+    <div style="overflow-x:auto;" class="reveal">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Mobile Web (today)</th>
+            <th>Native App (Forumly)</th>
+            <th>Your 50% Share</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Revenue per user / month</td>
+            <td class="val">~$0.05</td>
+            <td class="val val--green">~$0.15+</td>
+            <td class="val val--orange">$0.075+</td>
+          </tr>
+          <tr class="row-highlight">
+            <td>Ad viewability</td>
+            <td class="val">63% (IAS) </td>
+            <td class="val val--green">86% (IAS 2024)</td>
+            <td>Ads are seen</td>
+          </tr>
+          <tr>
+            <td>Sessions per user</td>
+            <td class="val">Baseline</td>
+            <td class="val val--green">6-12× more sessions/user</td>
+            <td>More inventory to serve</td>
+          </tr>
+          <tr class="row-highlight">
+            <td>Ad format quality</td>
+            <td class="val">Display / banner</td>
+            <td class="val val--green">Rewarded / banner / Interstitial</td>
+            <td>Stronger CPMs</td>
+          </tr>
+          <tr>
+            <td>Browser ad blockers</td>
+            <td class="val" style="color:#233d4d;"><span style="color:#233d4d;">Significant impact</span></td>
+            <td class="val val--green">None</td>
+            <td>More impressions served</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:24px;padding:20px 28px;background:rgba(161,193,129,0.1);border-left:4px solid var(--sage);border-radius:0 var(--r-md) var(--r-md) 0;font-size:15px;color:var(--dark);" class="reveal">Conclusion: You make more money per user in the app than you do from the same users on mobile web. All while having significantly more engagement and stickier Users.</p>
+  </div>
+</section>
+
+<!-- ── How it works ── -->
+<section class="sec sec--warm" data-screen-label="How It Works">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow eyebrow--dark">The timeline</span>
+      <h2 class="heading-1" style="margin-top:16px;">From call to launch in 30 days.</h2>
+    </div>
+    <div class="pricing-steps reveal">
+      <div class="ps">
+        <div class="ps-num">01</div>
+        <div class="ps-title">Discovery Call</div>
+        <p class="ps-body">We learn about your community, your plugins, your goals. No obligation.</p>
+      </div>
+      <div class="ps">
+        <div class="ps-num">02</div>
+        <div class="ps-title">Design &amp; Brand</div>
+        <p class="ps-body">We apply your brand to the app. Your logo, colors, badges and identity throughout.</p>
+      </div>
+      <div class="ps">
+        <div class="ps-num">03</div>
+        <div class="ps-title">Integration &amp; Beta</div>
+        <p class="ps-body">XenForo API connected. You and your mods test until it's exactly right.</p>
+      </div>
+      <div class="ps">
+        <div class="ps-num">04</div>
+        <div class="ps-title">Live &amp; Earning</div>
+        <p class="ps-body">App Store &amp; Google Play live. Revenue starts. Your community has a real app.</p>
+      </div>
+    </div>
+    <div style="margin-top:56px;text-align:center;" class="reveal">
+      <a href="#" class="btn btn-primary btn-lg">Start the Clock &rarr;</a>
+      <p class="reassure" style="margin-top:14px;font-size:13px;color:var(--muted);">No long-term contracts. No lock-in. Cancel anytime.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Forumly<em>.</em></div>
+        <p class="footer-tag">Native apps for XenForo communities. Own your channel. Grow your community.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="product.html">Overview</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Forumly. All rights reserved.</span>
+      <span>Built for the communities that matter.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

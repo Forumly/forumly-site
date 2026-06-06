@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Forumly</title>
+<meta name="description" content="Common questions about Forumly — getting started, revenue, technical integration, and App Store compliance.">
+<link rel="stylesheet" href="css/forumly.css">
+<style>
+/* ── Hero ── */
+.faq-hero {
+  background: var(--warm);
+  padding: clamp(72px, 9vw, 120px) 0 clamp(48px, 6vw, 80px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── FAQ layout ── */
+.faq-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  align-items: start;
+  padding: var(--sv) 0;
+}
+
+/* ── Sticky sidebar ── */
+.faq-sidebar {
+  position: sticky;
+  top: 96px;
+}
+.faq-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+.faq-sidebar-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 8px 14px;
+  border-radius: var(--r-sm);
+  border-left: 2px solid transparent;
+  transition: all 0.18s;
+  cursor: pointer;
+  display: block;
+}
+.faq-sidebar-link:hover, .faq-sidebar-link.active {
+  color: var(--dark);
+  border-left-color: var(--orange);
+  background: rgba(254,127,45,0.05);
+}
+
+/* ── FAQ groups ── */
+.faq-group { margin-bottom: 64px; }
+.faq-group:last-child { margin-bottom: 0; }
+
+.faq-group-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+.group-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  background: rgba(252,202,70,0.12);
+  border: 1px solid rgba(252,202,70,0.25);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+/* ── FAQ items ── */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+}
+.faq-q-text {
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.4;
+}
+.faq-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s;
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 300;
+}
+.faq-item.open .faq-icon {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--black);
+  transform: rotate(45deg);
+}
+.faq-item.open .faq-q-text { color: var(--orange); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+.faq-item.open .faq-answer { max-height: 400px; }
+.faq-answer-inner {
+  padding-bottom: 24px;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.faq-answer-inner strong { color: var(--dark); }
+.faq-answer-inner a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Bottom CTA ── */
+.faq-cta {
+  background: var(--dark);
+  border-radius: var(--r-xl);
+  padding: 56px 48px;
+  text-align: center;
+  margin-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.faq-cta::before {
+  content: '?';
+  position: absolute;
+  right: 5%;
+  bottom: -10%;
+  font-family: var(--font-display);
+  font-size: 240px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.03);
+  pointer-events: none;
+  line-height: 1;
+}
+
+@media (max-width: 860px) {
+  .faq-layout { grid-template-columns: 1fr; gap: 0; }
+  .faq-sidebar { position: static; margin-bottom: 40px; }
+  .faq-sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .faq-sidebar-link { border-left: none; border-bottom: 2px solid transparent; padding: 6px 12px; }
+  .faq-sidebar-link:hover, .faq-sidebar-link.active { border-left-color: transparent; border-bottom-color: var(--orange); }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Forumly<em>.</em></a>
+    <div class="nav-links" id="navLinks">
+      <a href="product.html">Product</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html" class="active">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-login">Login</a>
+      <a href="#" class="btn btn-primary btn-sm">Book a Demo</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="faq-hero" data-screen-label="Hero">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--dark">Everything you need to know</span>
+    <h1 class="heading-1" style="margin-top:16px;">
+      Answers before<br>the demo call.
+    </h1>
+    <p class="lead" style="margin-top:16px;max-width:520px;">
+      The most common questions forum operators ask before getting started with Forumly.
+      Can't find what you need? <a href="#" style="color:var(--orange);text-decoration:underline;text-underline-offset:3px;">Let's talk directly.</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── FAQ Body ── -->
+<div class="wrap">
+  <div class="faq-layout">
+
+    <!-- Sidebar nav -->
+    <aside class="faq-sidebar" aria-label="FAQ categories">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Jump to</p>
+      <nav class="faq-sidebar-nav">
+        <a class="faq-sidebar-link active" href="#getting-started">Getting Started</a>
+        <a class="faq-sidebar-link" href="#revenue">Revenue &amp; Pricing</a>
+        <a class="faq-sidebar-link" href="#technical">Technical</a>
+        <a class="faq-sidebar-link" href="#alternatives">Miscellaneous</a>
+        <a class="faq-sidebar-link" href="#appstore">App Store &amp; Compliance</a>
+      </nav>
+    </aside>
+
+    <!-- FAQ content -->
+    <main>
+
+      <!-- Getting Started -->
+      <div class="faq-group" id="getting-started" data-screen-label="Getting Started">
+        <div class="faq-group-title">
+          <span class="group-eyebrow">Getting Started</span>
+          <h2 class="heading-3">Before you begin</h2>
+        </div>
+
+        <div class="faq-item open">
+          <button class="faq-question" aria-expanded="true">
+            <span class="faq-q-text">How long does it take to launch?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">30 days from your first call to a live app in the App Store and Google Play. The timeline:
+ 
+Week 1: Discovery call to understand your community and goals and go over our solution with you.
+Week 2: Technical and brand integration. You install our plugin, we input all of your app configurations and brand identity into the app.
+Week 3: Beta testing and fixes
+Week 4: App Store submission. Apple review typically takes 1–3 business days; Google Play is often faster.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">What do you need from us to get started?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Very little. You install our plugin and then we need your XenForo API credentials, your brand assets (logo, colors), and access to one or two moderators for beta testing. We handle everything else: development, App Store accounts, submission, and ongoing updates. You don't need a developer on your end.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">Does my forum have to be a certain size?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">For the standard revenue-share model, we typically see the strongest results for forums with 500+ daily active users. That's where the app pays for itself fastest (usually 3–6 months). Smaller forums are welcome too though we may not be able to offer the no-upfront option depending on your setup. Book a call and we'll give you an honest assessment.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">Will the app disrupt my existing web forum?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Not at all. The Forumly app runs completely in parallel with your existing web app as optional  new front end UI/UX that your members can access. We integrate via the XenForo API and a lightweight add-on. Your web app doesn't change. We've found that every forum has members that like things how they are, this is for the subset of Users that would prefer a native app. All data remains on your servers. We are simply a new front end layered on top of what you already have.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue -->
+      <div class="faq-group" id="revenue" data-screen-label="Revenue">
+        <div class="faq-group-title">
+          <span class="group-eyebrow">Revenue &amp; Pricing</span>
+          <h2 class="heading-3">The money questions</h2>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">How does the revenue share work?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We measure your current mobile web ad revenue per user (your baseline ARPU). Once the app is live, any in-app ad revenue is split 50/50. Here's where we back it up, if the app doesn't perform above your baseline by 2x, we take nothing until it does (the 2× Guarantee). We only make money if we make you money. Revenue is reported monthly and your share is paid out directly.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">When do I start seeing returns?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">For forums with 500+ DAUs on the standard plan, the $6,000 setup fee is typically recovered within 3–6 months. After that, the 50/50 split is pure additional revenue above and beyond what your mobile web Users are already generating since we take nothing if we don't double your ARPU.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">What about my existing paid/subscriber members?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Premium stays premium. Any member with an existing paid/ad-free subscription will never see ads in the Forumly app. Their experience is respected. Their tier carries over seamlessly via their User Groups.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical -->
+      <div class="faq-group" id="technical" data-screen-label="Technical">
+        <div class="faq-group-title">
+          <span class="group-eyebrow">Technical</span>
+          <h2 class="heading-3">Under the hood</h2>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">Do you support all XenForo add-ons?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We support the core XenForo feature set and many popular plugins. During the discovery call we'll go through your specific configuration and tell you exactly what's supported and what our roadmap looks like. Custom or niche add-ons may require additional scoping.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">How does the app stay in sync with my forum?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We integrate via the XenForo REST API plus a lightweight add-on installed on your forum. This handles real-time data sync, permissions, search, and notifications. All content lives on your servers, we are simply reading and writing through the API.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">What happens if I have custom plugins or a modified theme?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">The app uses its own native UI/UX, it doesn't inherit your XenForo theme. So custom CSS or XenForo visual modifications don't carry over. Your branding (logo, colors, identity) is applied natively within the app. We parse all BBCode into native iOS and Android UI elements. For custom plugins, we assess on a case-by-case basis during the discovery call.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">Is my community's data secure?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. All data stays on your servers. We never store your forum's on Forumly infrastructure. Our add-on reads data through the XenForo API using your existing permission model. We follow industry standard security practices.
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Miscellaneous -->
+      <div class="faq-group" id="alternatives" data-screen-label="Miscellaneous">
+        <div class="faq-group-title">
+          <span class="group-eyebrow">Miscellaneous</span>
+          <h2 class="heading-3">Other questions</h2>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">What if my forum already has an app or mobile site?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">If you have a Tapatalk integration or a webview wrapper, Forumly can make you a native app in addition (or as a replacement) that we think is genuinely better, but we're biased. If you already have a custom native app, we'd want to understand what you have and have an honest conversation about whether we can improve on it.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">How is the app different from Tapatalk?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Night and day. Tapatalk is an aggregator: your community lives inside their app, under their brand, with their reviews and their relationship with your members. Forumly builds your app: your name in the App Store, your icon, your screenshots, your push notifications. All engagement accrues to your property. We're also fully native — not a webview wrapper — so the experience is genuinely faster and more polished.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Store -->
+      <div class="faq-group" id="appstore" data-screen-label="App Store">
+        <div class="faq-group-title">
+          <span class="group-eyebrow">App Store &amp; Compliance</span>
+          <h2 class="heading-3">Publishing &amp; platform rules</h2>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">Who manages App Store and Google Play submissions?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We handle everything. Forumly manages the full submission process for both the Apple App Store and Google Play including all metadata, screenshots, descriptions with your input. The app is published under your name and brand, not ours. Your community gets the listing, we handle the logistics.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-q-text">What happens if Apple or Google changes their policies?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We stay on top of platform policy changes as part of our ongoing management. If Apple or Google update their guidelines in a way that affects your app, we handle the technical and submission response. That's a part of why operators partner with us rather than building in-house.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="faq-cta reveal">
+        <div style="position:relative;z-index:1;">
+          <span class="eyebrow" style="display:block;margin-bottom:16px;">Still have questions?</span>
+          <h2 class="heading-2" style="color:var(--white);margin-bottom:16px;">Let's talk.</h2>
+          <p style="color:rgba(255,255,255,0.6);font-size:15px;max-width:400px;margin:0 auto 32px;line-height:1.7;">
+            A 30-minute call is the fastest way to get real answers about whether Forumly is 
+            right for your community.
+          </p>
+          <a href="#" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div style="height:var(--sv);"></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Forumly<em>.</em></div>
+        <p class="footer-tag">Native apps for XenForo communities. Own your channel. Grow your community.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="product.html">Overview</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Forumly. All rights reserved.</span>
+      <span>Built for the communities that matter.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+/* FAQ accordion */
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) {
+      i.classList.remove('open');
+      i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* Sidebar active state on scroll */
+var groups = document.querySelectorAll('.faq-group');
+var sideLinks = document.querySelectorAll('.faq-sidebar-link');
+window.addEventListener('scroll', function() {
+  var scrollY = window.scrollY + 120;
+  var active = null;
+  groups.forEach(function(g) {
+    if (g.offsetTop <= scrollY) active = g.id;
+  });
+  sideLinks.forEach(function(l) {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + active);
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
