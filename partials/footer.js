@@ -19,7 +19,7 @@ document.currentScript.insertAdjacentHTML('beforebegin',
             '<ul>' +
               '<li><a href="about.html">About</a></li>' +
               '<li><a href="faq.html">FAQ</a></li>' +
-              '<li><a href="#">Contact</a></li>' +
+              '<li><a href="mailto:nathan@tryforumly.com">Contact</a></li>' +
             '</ul>' +
           '</div>' +
         '</nav>' +

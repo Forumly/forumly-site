@@ -10,8 +10,7 @@
           '<a href="faq.html">FAQ</a>' +
         '</div>' +
         '<div class="nav-right">' +
-          '<a href="#" class="nav-login">Login</a>' +
-          '<a href="#" class="btn btn-primary btn-sm">Book a Demo</a>' +
+          '<a href="" onclick="Calendly.initPopupWidget({url:\'https://calendly.com/nathan-tryforumly/30min?primary_color=fe7f2d\'});return false;" class="btn btn-primary btn-sm">Book a Demo</a>' +
         '</div>' +
         '<button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">' +
           '<span></span><span></span><span></span>' +
