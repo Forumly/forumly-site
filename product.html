@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product — Forumly</title>
 <meta name="description" content="Everything your XenForo community needs in their pocket. Native iOS &amp; Android apps with push notifications, Live Mode, custom branding, and real-time sync.">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <link rel="stylesheet" href="css/forumly.css">
 <link rel="stylesheet" href="css/product.css">
 </head>
@@ -22,7 +23,7 @@
 In your Users pockets.</h1>
         <p class="lead" style="margin-top:20px;max-width:460px;">50-80% of your members are already accessing your forum via their phone. It's essential to meet them where they are. While the progressive web app suffices, the benefits of a native mobile iOS &amp; Android app (listed on the Apple App and Google Play stores) allow for increased user engagement across the board and in turn grows your community.<br><br>Our apps are customized to your brand and optimized for engagement. No webview wrappers. No aggregators. Yours.</p>
         <div style="margin-top:32px;">
-          <a href="#" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
+          <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nathan-tryforumly/30min?primary_color=fe7f2d'});return false;" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
         </div>
       </div>
       <div class="product-hero-img">
@@ -72,7 +73,7 @@ In your Users pockets.</h1>
       <select class="feat-mobile-select" id="featSelect" style="display:none;">
         <option value="branding">Custom Branding</option>
         <option value="push">Push Notifications</option>
-        <option value="feed">Scrollable Feed</option>
+        <option value="feed">Infinite Scrolling</option>
         <option value="dms">Conversations as DMs</option>
         <option value="livemode">Live Mode</option>
         <option value="bbcode">Native BBCode Parsing</option>
@@ -109,7 +110,7 @@ In your Users pockets.</h1>
           <div class="feat-icon" style="background:var(--sage);">
             <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </div>
-          <div><h4>Scrollable Feed</h4><p>With a native feed and the ability to show the first post of each thread, the mobile UI makes it easy for users to scroll and content discovery effortless.</p></div>
+          <div><h4>Infinite Scrolling</h4><p>With a native feed and the ability to show the first post of each thread, the mobile UI makes it easy for users to scroll and content discovery effortless.</p></div>
         </button>
 
         <button class="feat" data-feat="dms">
@@ -201,333 +202,67 @@ In your Users pockets.</h1>
 
 
           <div class="preview-screen active" id="feat-branding">
-            <div style="background:var(--dark);flex:1;display:flex;flex-direction:column;">
-              <div style="padding:20px 16px 12px;">
-                <div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Your community</div>
-                <div style="font-family:Georgia,serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:4px;">Reef2Reef</div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.55);">The world's largest reef aquarium community</div>
-              </div>
-              <div style="margin:0 12px;border-radius:10px;overflow:hidden;">
-                <div style="height:80px;background:linear-gradient(135deg,#006064,#26C6DA);display:flex;align-items:center;justify-content:center;">
-                  <div style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:var(--white);opacity:0.9;">R2R</div>
-                </div>
-              </div>
-              <div style="padding:12px;display:flex;flex-direction:column;gap:6px;">
-                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;">
-                  <div style="font-size:11px;color:var(--white);">Forums</div>
-                  <div style="font-size:10px;color:rgba(255,255,255,0.35);">›</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;">
-                  <div style="font-size:11px;color:var(--white);">Classifieds</div>
-                  <div style="font-size:10px;color:rgba(255,255,255,0.35);">›</div>
-                </div>
-                <div style="background:rgba(254,127,45,0.15);border:1px solid rgba(254,127,45,0.3);border-radius:8px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;">
-                  <div style="font-size:11px;color:var(--orange);">Members Only</div>
-                  <div style="font-size:10px;color:var(--orange);">›</div>
-                </div>
-              </div>
-            </div>
+            <img src="uploads/feat-branding.png" alt="CanesInSight custom branded welcome screen">
           </div>
 
           <div class="preview-screen" id="feat-push">
-            <div class="ps-nav"><span class="ps-nav-title">Reef2Reef</span></div>
-            <div style="background:#f2f2f7;flex:1;padding:10px;display:flex;flex-direction:column;gap:7px;">
-              <!-- notification banner -->
-              <div style="background:var(--white);border-radius:10px;padding:12px;box-shadow:0 2px 12px rgba(0,0,0,0.1);">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                  <div style="width:24px;height:24px;border-radius:6px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:12px;">🔔</div>
-                  <div style="font-size:10px;font-weight:700;color:#111;">Reef2Reef</div>
-                  <div style="font-size:10px;color:#aaa;margin-left:auto;">now</div>
-                </div>
-                <div style="font-size:11px;font-weight:600;color:#111;margin-bottom:2px;">reef_dave replied to your post</div>
-                <div style="font-size:10px;color:#555;">&ldquo;That's a beautiful specimen! Where did you source it?&rdquo;</div>
-              </div>
-              <div style="background:var(--white);border-radius:10px;padding:12px;opacity:0.6;">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                  <div style="width:24px;height:24px;border-radius:6px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:12px;">💬</div>
-                  <div style="font-size:10px;font-weight:700;color:#111;">Reef2Reef</div>
-                  <div style="font-size:10px;color:#aaa;margin-left:auto;">2m</div>
-                </div>
-                <div style="font-size:11px;font-weight:600;color:#111;margin-bottom:2px;">New post in: SPS Discussion</div>
-                <div style="font-size:10px;color:#555;">&ldquo;My acropora finally opened after 3 weeks...&rdquo;</div>
-              </div>
-              <div style="background:var(--white);border-radius:10px;padding:12px;opacity:0.4;">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                  <div style="width:24px;height:24px;border-radius:6px;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:12px;">⭐</div>
-                  <div style="font-size:10px;font-weight:700;color:#111;">Reef2Reef</div>
-                  <div style="font-size:10px;color:#aaa;margin-left:auto;">1h</div>
-                </div>
-                <div style="font-size:11px;font-weight:600;color:#111;">coral_wizard liked your post</div>
-              </div>
-            </div>
+            <img src="uploads/feat-push.png" alt="Push notifications on lock screen">
           </div>
 
           <div class="preview-screen" id="feat-feed">
-            <div class="ps-nav"><span class="ps-nav-title">Latest Posts</span></div>
-            <div class="ps-body">
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#2196F3,#0d47a1);"></div>
-                <div><div class="ps-row-title">New SPS coral — finally got it to open!</div><div class="ps-row-meta">reef_dave · 4 min ago · 23 replies</div><div class="ps-row-body">After 3 weeks of acclimation...</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#4CAF50,#1b5e20);"></div>
-                <div><div class="ps-row-title">DSM tuning baseline pull results</div><div class="ps-row-meta">boost_kyle · 12 min ago · 8 replies</div><div class="ps-row-body">Stock turbo at 18psi...</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,var(--orange),#b34700);"></div>
-                <div><div class="ps-row-title">Gameday thread — UM vs FSU 🏈</div><div class="ps-row-meta">canes_mod · 1 hr ago · 142 replies</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#9C27B0,#4a148c);"></div>
-                <div><div class="ps-row-title">Weekly photography showcase</div><div class="ps-row-meta">photog_jen · 2 hr ago · 31 replies</div></div>
-              </div>
-            </div>
+            <img src="uploads/feat-feed.gif" alt="Infinite scrolling feed">
           </div>
 
           <div class="preview-screen" id="feat-dms">
-            <div class="ps-nav"><span class="ps-nav-title">Messages</span></div>
-            <div style="background:#f2f2f7;flex:1;padding:10px;display:flex;flex-direction:column;gap:8px;overflow:hidden;">
-              <div style="display:flex;flex-direction:column;gap:6px;flex:1;">
-                <div style="align-self:flex-start;background:var(--white);border-radius:12px 12px 12px 2px;padding:8px 12px;max-width:75%;">
-                  <div style="font-size:11px;color:#333;">Hey! Is that hammer still available?</div>
-                  <div style="font-size:9px;color:#aaa;margin-top:2px;">reef_dave · 10:24am</div>
-                </div>
-                <div style="align-self:flex-end;background:var(--teal);border-radius:12px 12px 2px 12px;padding:8px 12px;max-width:75%;">
-                  <div style="font-size:11px;color:var(--white);">Yes! Just trimmed it yesterday. Can ship or local pickup</div>
-                  <div style="font-size:9px;color:rgba(255,255,255,0.6);margin-top:2px;">10:26am</div>
-                </div>
-                <div style="align-self:flex-start;background:var(--white);border-radius:12px 12px 12px 2px;padding:8px 12px;max-width:75%;">
-                  <div style="font-size:11px;color:#333;">Perfect — I'm in Miami. What are you asking?</div>
-                  <div style="font-size:9px;color:#aaa;margin-top:2px;">10:28am</div>
-                </div>
-                <div style="align-self:flex-end;background:var(--teal);border-radius:12px 12px 2px 12px;padding:8px 12px;max-width:75%;">
-                  <div style="font-size:11px;color:var(--white);">$45 for a 2" frag 🪸</div>
-                  <div style="font-size:9px;color:rgba(255,255,255,0.6);margin-top:2px;">10:29am</div>
-                </div>
-              </div>
-              <div style="background:var(--white);border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:8px;">
-                <div style="font-size:11px;color:#aaa;flex:1;">Message...</div>
-                <div style="width:24px;height:24px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:11px;color:white;">↑</div>
-              </div>
-            </div>
+            <img src="uploads/feat-dms.png" alt="Conversations as DMs">
           </div>
 
           <div class="preview-screen" id="feat-livemode">
-            <div class="ps-nav" style="background:var(--dark);"><span class="ps-nav-title" style="color:var(--orange);">⚡ Gameday · LIVE</span></div>
-            <div style="background:#f2f2f7;flex:1;padding:10px;display:flex;flex-direction:column;gap:7px;">
-              <div style="font-size:10px;font-weight:700;color:var(--orange);display:flex;align-items:center;gap:5px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block;"></span> LIVE · 142 new posts</div>
-              <div style="background:var(--white);border-radius:8px;padding:10px;border-left:3px solid var(--orange);">
-                <div style="font-size:11px;font-weight:700;color:var(--dark);margin-bottom:2px;">TOUCHDOWN! 🏈</div>
-                <div style="font-size:10px;color:#888;">miamifan_95 · just now</div>
-              </div>
-              <div style="background:var(--white);border-radius:8px;padding:10px;">
-                <div style="font-size:11px;color:#333;margin-bottom:2px;">Section 214 going absolutely crazy</div>
-                <div style="font-size:10px;color:#888;">canes_mod · 3 sec ago</div>
-              </div>
-              <div style="background:var(--white);border-radius:8px;padding:10px;opacity:0.7;">
-                <div style="font-size:11px;color:#333;margin-bottom:2px;">Anyone on the second screen? 🔥</div>
-                <div style="font-size:10px;color:#888;">alejandro_m · 8 sec ago</div>
-              </div>
-            </div>
+            <video src="uploads/feat-livemode.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:top;"></video>
           </div>
 
           <div class="preview-screen" id="feat-bbcode">
-            <div class="ps-nav"><span class="ps-nav-title">SPS Discussion</span></div>
-            <div class="ps-body">
-              <div style="background:var(--white);border-radius:8px;padding:12px;font-size:11px;color:#333;line-height:1.6;">
-                <div style="font-weight:700;font-size:12px;margin-bottom:6px;">My 180g build — 6 month update</div>
-                <div>Got the <strong>alkalinity</strong> dialed in at <em>8.3 dKH</em>. The <span style="color:var(--orange);font-weight:600;">acropora</span> is <span style="font-size:13px;font-weight:700;">thriving</span>.</div>
-                <div style="background:#f5f5f5;border-left:3px solid var(--teal);padding:7px;margin:8px 0;border-radius:0 4px 4px 0;font-size:10px;color:#666;">💬 Spoiler: water test results</div>
-                <div style="display:inline-block;background:#fff3e0;border:1px solid #ffe0b2;border-radius:4px;padding:2px 8px;font-size:10px;color:var(--orange);">🔒 Tap to reveal</div>
-              </div>
-              <div class="ps-row"><div class="ps-thumb" style="background:linear-gradient(135deg,#26C6DA,#006064);"></div><div><div class="ps-row-title">60g frag tank — ready to trade</div><div class="ps-row-meta">coral_wizard · 5 min ago</div></div></div>
-            </div>
+            <img src="uploads/feat-bbcode.png" alt="Native BBCode parsing">
           </div>
 
           <div class="preview-screen" id="feat-media">
-            <div class="ps-nav"><span class="ps-nav-title">SPS Discussion</span></div>
-            <div style="background:#f2f2f7;flex:1;padding:10px;overflow:hidden;">
-              <div style="background:var(--white);border-radius:10px;overflow:hidden;">
-                <div style="height:110px;background:linear-gradient(135deg,#26C6DA,#006064);position:relative;">
-                  <div style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.5);border-radius:4px;padding:2px 6px;font-size:9px;color:var(--white);">▶ 0:32</div>
-                </div>
-                <div style="padding:10px;">
-                  <div style="font-size:11px;font-weight:700;color:#111;margin-bottom:4px;">Finally got my hammer to open! 3 weeks of patience 🪸</div>
-                  <div style="font-size:10px;color:#888;">reef_dave &middot; SPS Discussion &middot; 12 replies</div>
-                </div>
-              </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:8px;">
-                <div style="border-radius:8px;height:64px;background:linear-gradient(135deg,#FF8A65,#BF360C);"></div>
-                <div style="border-radius:8px;height:64px;background:linear-gradient(135deg,#66BB6A,#1B5E20);"></div>
-              </div>
-            </div>
+            <video src="uploads/feat-media.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:top;"></video>
           </div>
 
           <div class="preview-screen" id="feat-mediaviewer">
-            <div style="background:#000;flex:1;display:flex;flex-direction:column;">
-              <div style="padding:12px;display:flex;justify-content:space-between;">
-                <span style="color:rgba(255,255,255,0.7);font-size:11px;">← Back</span>
-                <span style="color:rgba(255,255,255,0.7);font-size:11px;">3 / 12</span>
-              </div>
-              <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:0 12px;">
-                <div style="width:100%;height:150px;background:linear-gradient(135deg,#26C6DA,#006064);border-radius:8px;"></div>
-              </div>
-              <div style="display:flex;gap:6px;padding:12px;overflow-x:auto;">
-                <div style="width:44px;height:44px;border-radius:6px;background:linear-gradient(135deg,#FF8A65,#BF360C);flex-shrink:0;"></div>
-                <div style="width:44px;height:44px;border-radius:6px;background:linear-gradient(135deg,#26C6DA,#006064);border:2px solid var(--orange);flex-shrink:0;"></div>
-                <div style="width:44px;height:44px;border-radius:6px;background:linear-gradient(135deg,#66BB6A,#1B5E20);flex-shrink:0;"></div>
-                <div style="width:44px;height:44px;border-radius:6px;background:linear-gradient(135deg,#9C27B0,#4a148c);flex-shrink:0;"></div>
-                <div style="width:44px;height:44px;border-radius:6px;background:linear-gradient(135deg,#FFCC80,#E65100);flex-shrink:0;"></div>
-              </div>
-            </div>
+            <video src="uploads/feat-mediaviewer.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:top;"></video>
           </div>
 
           <div class="preview-screen" id="feat-socialmedia">
-            <div class="ps-nav"><span class="ps-nav-title">CanesInsight · Game Thread</span></div>
-            <div class="ps-body">
-              <div class="ps-row"><div class="ps-thumb" style="background:linear-gradient(135deg,#1DA1F2,#0d47a1);"></div><div><div class="ps-row-title">Tweet embedded inline</div><div class="ps-row-meta">@canes_insider · just now</div><div class="ps-row-body">"Just confirmed — 5-star commit incoming. Big news tonight. 🎙️"</div></div></div>
-              <div style="background:var(--white);border-radius:8px;padding:10px;">
-                <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">TikTok</div>
-                <div style="height:72px;background:linear-gradient(135deg,#010101,#2d2d2d);border-radius:6px;display:flex;align-items:center;justify-content:center;gap:8px;">
-                  <span style="font-size:20px;">&#9654;</span>
-                  <div style="font-size:11px;color:rgba(255,255,255,0.8);">Highlight reel · 0:47</div>
-                </div>
-              </div>
-              <div class="ps-row"><div class="ps-thumb" style="background:linear-gradient(135deg,#E1306C,#833AB4);"></div><div><div class="ps-row-title">Instagram post</div><div class="ps-row-meta">@hurricanes_official</div></div></div>
-            </div>
+            <img src="uploads/feat-socialmedia.png" alt="Social media embeds">
           </div>
 
           <div class="preview-screen" id="feat-posting">
-            <div class="ps-nav"><span class="ps-nav-title">New Reply</span></div>
-            <div style="background:#f2f2f7;flex:1;padding:10px;display:flex;flex-direction:column;gap:8px;">
-              <div style="background:var(--white);border-radius:10px;padding:10px;font-size:11px;color:#333;min-height:80px;border:1.5px solid var(--orange);">Typing a reply here... the camera icon makes attaching photos instant.</div>
-              <div style="display:flex;gap:8px;">
-                <div style="width:32px;height:32px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:16px;">📷</div>
-                <div style="width:32px;height:32px;border-radius:8px;background:#e8eef2;display:flex;align-items:center;justify-content:center;font-size:16px;">🎥</div>
-                <div style="width:32px;height:32px;border-radius:8px;background:#e8eef2;display:flex;align-items:center;justify-content:center;font-size:16px;">😊</div>
-                <div style="margin-left:auto;background:var(--orange);color:var(--black);border-radius:8px;padding:6px 16px;font-size:11px;font-weight:700;">Post</div>
-              </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:4px;">
-                <div style="border-radius:8px;height:56px;background:linear-gradient(135deg,#26C6DA,#006064);"></div>
-                <div style="border-radius:8px;height:56px;background:linear-gradient(135deg,#FF8A65,#BF360C);"></div>
-                <div style="border-radius:8px;height:56px;background:linear-gradient(135deg,#66BB6A,#1B5E20);"></div>
-                <div style="border-radius:8px;height:56px;background:linear-gradient(135deg,#7986CB,#3F51B5);"></div>
-                <div style="border-radius:8px;height:56px;background:linear-gradient(135deg,#FFCC80,#E65100);"></div>
-                <div style="border-radius:8px;height:56px;background:linear-gradient(135deg,#F48FB1,#880E4F);"></div>
-              </div>
-            </div>
+            <img src="uploads/feat-posting.png" alt="Easy posting">
           </div>
 
           <div class="preview-screen" id="feat-editor">
-            <div class="ps-nav"><span class="ps-nav-title">New Reply</span></div>
-            <div style="background:#f2f2f7;flex:1;padding:10px;display:flex;flex-direction:column;gap:8px;">
-              <div style="background:var(--white);border-radius:10px;padding:10px;font-size:11px;color:#333;min-height:80px;border:1.5px solid var(--orange);">Just got my <strong>hammer coral</strong> to finally open! Here’s a quick update...</div>
-              <div style="background:var(--white);border-radius:8px;padding:8px;display:flex;gap:10px;align-items:center;">
-                <span style="font-size:14px;font-weight:700;color:#333;">B</span>
-                <span style="font-size:14px;font-style:italic;color:#333;">I</span>
-                <span style="font-size:14px;text-decoration:underline;color:#333;">U</span>
-                <span style="font-size:16px;">🎭</span>
-                <div style="width:26px;height:26px;border-radius:6px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;">📷</div>
-                <div style="margin-left:auto;background:var(--orange);color:var(--black);border-radius:6px;padding:5px 14px;font-size:11px;font-weight:700;">Post</div>
-              </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
-                <div style="border-radius:8px;height:52px;background:linear-gradient(135deg,#26C6DA,#006064);"></div>
-                <div style="border-radius:8px;height:52px;background:linear-gradient(135deg,#FF8A65,#BF360C);"></div>
-              </div>
-            </div>
+            <img src="uploads/feat-editor.png" alt="Rich text editor">
           </div>
 
           <div class="preview-screen" id="feat-ytplaylist">
-            <div class="ps-nav"><span class="ps-nav-title">DSMtuners · Videos</span></div>
-            <div class="ps-body">
-              <div style="background:#000;border-radius:8px;overflow:hidden;margin-bottom:4px;">
-                <div style="height:80px;background:linear-gradient(135deg,#212121,#424242);display:flex;align-items:center;justify-content:center;">
-                  <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,0,0,0.9);display:flex;align-items:center;justify-content:center;font-size:15px;color:white;padding-left:3px;">▶</div>
-                </div>
-                <div style="padding:8px;"><div style="font-size:11px;font-weight:700;color:var(--white);">Eagle Talon AWD Build — Ep. 4</div><div style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:2px;">DSMtuners · 12K views</div></div>
-              </div>
-              <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Up Next</div>
-              <div class="ps-row"><div class="ps-thumb" style="background:linear-gradient(135deg,#37474F,#263238);"></div><div><div class="ps-row-title">Turbo Install Walkthrough</div><div class="ps-row-meta">8:24 · 6.2K views</div></div></div>
-              <div class="ps-row"><div class="ps-thumb" style="background:linear-gradient(135deg,#4E342E,#3E2723);"></div><div><div class="ps-row-title">Dyno Day Results — Summer 2025</div><div class="ps-row-meta">5:11 · 4.8K views</div></div></div>
-            </div>
+            <img src="uploads/feat-ytplaylist.png" alt="YouTube playlist">
           </div>
 
           <div class="preview-screen" id="feat-polls">
-            <div class="ps-nav"><span class="ps-nav-title">DSMtuners · Poll</span></div>
-            <div class="ps-body">
-              <div style="background:var(--white);border-radius:8px;padding:14px;">
-                <div style="font-weight:700;font-size:12px;margin-bottom:14px;">Best DSM for a first build?</div>
-                <div style="display:flex;flex-direction:column;gap:8px;">
-                  <div style="position:relative;background:#f2f2f7;border-radius:6px;overflow:hidden;">
-                    <div style="position:absolute;left:0;top:0;bottom:0;width:62%;background:rgba(254,127,45,0.15);"></div>
-                    <div style="position:relative;padding:8px 10px;display:flex;justify-content:space-between;font-size:11px;font-weight:600;"><span>Eagle Talon AWD</span><span style="color:var(--orange);">62%</span></div>
-                  </div>
-                  <div style="position:relative;background:#f2f2f7;border-radius:6px;overflow:hidden;">
-                    <div style="position:absolute;left:0;top:0;bottom:0;width:24%;background:rgba(97,155,138,0.15);"></div>
-                    <div style="position:relative;padding:8px 10px;display:flex;justify-content:space-between;font-size:11px;font-weight:600;"><span>Eclipse GSX</span><span style="color:var(--teal);">24%</span></div>
-                  </div>
-                  <div style="background:#f2f2f7;border-radius:6px;padding:8px 10px;display:flex;justify-content:space-between;font-size:11px;font-weight:600;"><span>Talon TSi</span><span style="color:var(--muted);">14%</span></div>
-                </div>
-                <div style="font-size:10px;color:var(--muted);margin-top:10px;">128 votes · 2 days left</div>
-              </div>
-            </div>
+            <video src="uploads/feat-polls.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:top;"></video>
           </div>
 
           <div class="preview-screen" id="feat-pdfs">
-            <div class="ps-nav"><span class="ps-nav-title">Reef2Reef · PDF Viewer</span></div>
-            <div style="background:#f2f2f7;flex:1;display:flex;flex-direction:column;">
-              <div style="background:var(--dark);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;">
-                <span style="font-size:10px;color:rgba(255,255,255,0.7);">reef_chemistry_guide.pdf</span>
-                <span style="font-size:10px;color:var(--orange);">Page 3 / 12</span>
-              </div>
-              <div style="flex:1;background:var(--white);margin:10px;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:6px;">
-                <div style="height:10px;background:#e0e0e0;border-radius:3px;width:90%;"></div>
-                <div style="height:10px;background:#e0e0e0;border-radius:3px;width:80%;"></div>
-                <div style="height:10px;background:#e0e0e0;border-radius:3px;width:85%;"></div>
-                <div style="height:40px;background:#f5f5f5;border-radius:4px;margin:4px 0;"></div>
-                <div style="height:10px;background:#e0e0e0;border-radius:3px;width:75%;"></div>
-                <div style="height:10px;background:#e0e0e0;border-radius:3px;width:88%;"></div>
-                <div style="height:10px;background:#e0e0e0;border-radius:3px;width:60%;"></div>
-              </div>
-              <div style="display:flex;justify-content:center;gap:16px;padding:10px;">
-                <div style="font-size:11px;color:var(--teal);font-weight:600;">← Prev</div>
-                <div style="font-size:11px;color:var(--teal);font-weight:600;">Next →</div>
-              </div>
-            </div>
+            <video src="uploads/feat-pdfs.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:top;"></video>
           </div>
 
           <div class="preview-screen" id="feat-ads">
-            <div class="ps-nav"><span class="ps-nav-title">Latest Posts</span></div>
-            <div class="ps-body">
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#2196F3,#0d47a1);"></div>
-                <div><div class="ps-row-title">New SPS coral — finally opened!</div><div class="ps-row-meta">reef_dave · 4 min ago</div></div>
-              </div>
-              <div style="background:linear-gradient(135deg,#1a237e,#283593);border-radius:8px;padding:12px;margin:2px 0;text-align:center;">
-                <div style="font-size:9px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Sponsored</div>
-                <div style="font-size:12px;font-weight:700;color:var(--white);">Marine Depot Summer Sale</div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.6);margin-top:2px;">Up to 30% off — this week only</div>
-                <div style="background:var(--orange);color:var(--black);border-radius:4px;padding:4px 12px;font-size:10px;font-weight:700;display:inline-block;margin-top:6px;">Shop Now</div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#4CAF50,#1b5e20);"></div>
-                <div><div class="ps-row-title">DSM tuning baseline pull results</div><div class="ps-row-meta">boost_kyle · 12 min ago</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,var(--orange),#b34700);"></div>
-                <div><div class="ps-row-title">Gameday thread — UM vs FSU</div><div class="ps-row-meta">canes_mod · 1 hr ago</div></div>
-              </div>
-            </div>
+            <img src="uploads/feat-ads.png" alt="Native ad integration">
           </div>
 
           <div class="preview-screen" id="feat-bespoke">
-            <div class="ps-nav"><span class="ps-nav-title">Custom Feature</span></div>
-            <div class="ps-custom">
-              <div class="ps-custom-icon">🔧</div>
-              <div class="ps-custom-title">Built for your community</div>
-              <div class="ps-custom-body">Have a unique feature that powers your forum? We scope and build it natively — no workarounds, no compromises.</div>
-              <div class="ps-custom-btn">Talk to Us →</div>
-            </div>
+            <img src="uploads/feat-bespoke.png" alt="Bespoke development">
           </div>
 
         </div>
@@ -574,7 +309,6 @@ In your Users pockets.</h1>
         <option value="showcase">Bob's Showcase</option>
         <option value="siropu">Siropu's Ad Manager</option>
         <option value="publift">Publift / Fuse Ads</option>
-        <option value="nobita">Nobita's Members Only</option>
         <option value="custom">+ Your Custom Plugin</option>
       </select>
 
@@ -604,10 +338,6 @@ In your Users pockets.</h1>
           <span class="plugin-btn-dot"></span>
           <span><span class="plugin-btn-label">Publift / Fuse Ads</span><span class="plugin-btn-sub">Programmatic ad network integration</span></span>
         </button>
-        <button class="plugin-btn" data-plugin="nobita">
-          <span class="plugin-btn-dot"></span>
-          <span><span class="plugin-btn-label">Nobita's Members Only</span><span class="plugin-btn-sub">Gated content for subscribers</span></span>
-        </button>
         <button class="plugin-btn" data-plugin="custom">
           <span class="plugin-btn-dot plugin-btn-dot--custom"></span>
           <span><span class="plugin-btn-label" style="color:var(--orange);">+ Your Custom Plugin</span><span class="plugin-btn-sub">We scope &amp; build it for your community</span></span>
@@ -620,187 +350,32 @@ In your Users pockets.</h1>
 
           <!-- XenForo Core -->
           <div class="preview-screen active" id="plugin-core">
-            <div class="ps-nav"><span class="ps-nav-title">Latest Posts</span></div>
-            <div class="ps-body">
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#2196F3,#0d47a1);"></div>
-                <div><div class="ps-row-title">New SPS coral — finally got it to open!</div><div class="ps-row-meta">reef_dave · 4 min ago · 23 replies</div><div class="ps-row-body">After 3 weeks of acclimation this hammer finally...</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#4CAF50,#1b5e20);"></div>
-                <div><div class="ps-row-title">DSM tuning baseline pull results</div><div class="ps-row-meta">boost_kyle · 12 min ago · 8 replies</div><div class="ps-row-body">Stock turbo at 18psi, AFR looked good across...</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,var(--orange),#b34700);"></div>
-                <div><div class="ps-row-title">Gameday thread — UM vs FSU 🏈</div><div class="ps-row-meta">canes_mod · 1 hr ago · 142 replies</div><div class="ps-row-body">Live Mode active — posts streaming in real time...</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#9C27B0,#4a148c);"></div>
-                <div><div class="ps-row-title">Weekly photography showcase</div><div class="ps-row-meta">photog_jen · 2 hr ago · 31 replies</div></div>
-              </div>
-            </div>
+            <img src="uploads/plugin-core.png" alt="XenForo core search">
           </div>
 
           <!-- Bob's AMS -->
           <div class="preview-screen" id="plugin-ams">
-            <div class="ps-nav"><span class="ps-nav-title">Articles</span></div>
-            <div class="ps-body">
-              <div style="background:var(--white);border-radius:8px;overflow:hidden;">
-                <div style="height:72px;background:linear-gradient(135deg,#1a237e,#283593);display:flex;align-items:flex-end;padding:8px 10px;">
-                  <div style="font-size:11px;font-weight:700;color:var(--white);line-height:1.3;">Reef Water Chemistry Masterclass: Part 3</div>
-                </div>
-                <div style="padding:8px 10px 10px;">
-                  <div style="display:flex;gap:6px;margin-bottom:6px;">
-                    <span class="ps-tag">Guide</span><span class="ps-tag--blue">Chemistry</span>
-                  </div>
-                  <div style="font-size:10px;color:#555;line-height:1.4;">Everything you need to know about alkalinity, calcium, and magnesium stability...</div>
-                  <div style="font-size:10px;color:#aaa;margin-top:6px;">by reef_admin · 847 views</div>
-                </div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#00897B,#004D40);"></div>
-                <div><div class="ps-row-title">Top DSM builds of 2025</div><div class="ps-row-meta">Staff pick · 2.1k views</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#F57C00,#E65100);"></div>
-                <div><div class="ps-row-title">Recruiting update: Spring transfers</div><div class="ps-row-meta">Staff pick · 5.4k views</div></div>
-              </div>
-            </div>
+            <img src="uploads/plugin-ams.png" alt="Bob's AMS articles">
           </div>
 
           <!-- Bob's Classifieds -->
           <div class="preview-screen" id="plugin-classifieds">
-            <div class="ps-nav"><span class="ps-nav-title">Classifieds</span></div>
-            <div class="ps-body">
-              <div style="display:flex;gap:6px;margin-bottom:4px;">
-                <span class="ps-tag--orange" style="padding:4px 10px;border-radius:20px;font-size:10px;font-weight:600;background:#fff3e0;color:#e65100;">For Sale</span>
-                <span class="ps-tag--blue" style="padding:4px 10px;border-radius:20px;font-size:10px;font-weight:600;background:#e3f2fd;color:#1565c0;">Wanted</span>
-                <span class="ps-tag" style="padding:4px 10px;border-radius:20px;font-size:10px;font-weight:600;">Trade</span>
-              </div>
-              <div class="ps-grid">
-                <div class="ps-grid-card">
-                  <div class="ps-grid-img" style="background:linear-gradient(135deg,#7986CB,#3F51B5);"></div>
-                  <div class="ps-grid-label">Acropora colony — 6 inch</div>
-                  <div class="ps-grid-price">$120 OBO</div>
-                </div>
-                <div class="ps-grid-card">
-                  <div class="ps-grid-img" style="background:linear-gradient(135deg,#EF9A9A,#C62828);"></div>
-                  <div class="ps-grid-label">Stock DSM ECU — clean</div>
-                  <div class="ps-grid-price">$85</div>
-                </div>
-                <div class="ps-grid-card">
-                  <div class="ps-grid-img" style="background:linear-gradient(135deg,#80CBC4,#00695C);"></div>
-                  <div class="ps-grid-label">Maxspect Gyre XF330</div>
-                  <div class="ps-grid-price">$175</div>
-                </div>
-                <div class="ps-grid-card">
-                  <div class="ps-grid-img" style="background:linear-gradient(135deg,#FFCC80,#E65100);"></div>
-                  <div class="ps-grid-label">Canes jersey — sz L</div>
-                  <div class="ps-grid-price">$40</div>
-                </div>
-              </div>
-            </div>
+            <video src="uploads/plugin-classifieds.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:top;"></video>
           </div>
 
           <!-- Bob's Showcase -->
           <div class="preview-screen" id="plugin-showcase">
-            <div class="ps-nav"><span class="ps-nav-title">Showcase</span></div>
-            <div class="ps-body">
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#26C6DA,#006064);border-radius:8px;"></div>
-                <div>
-                  <div class="ps-row-title">180 Gallon Mixed Reef — 3yr Update</div>
-                  <div class="ps-row-meta">by coral_wizard</div>
-                  <div style="display:flex;gap:4px;margin-top:4px;">
-                    <span class="ps-tag">Reef</span><span class="ps-tag--blue">SPS</span>
-                  </div>
-                </div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#FF8A65,#BF360C);border-radius:8px;"></div>
-                <div>
-                  <div class="ps-row-title">Eagle Talon Build — 450whp</div>
-                  <div class="ps-row-meta">by dsm_maniac</div>
-                  <div style="display:flex;gap:4px;margin-top:4px;">
-                    <span class="ps-tag--orange">DSM</span><span class="ps-tag--blue">Turbo</span>
-                  </div>
-                </div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#66BB6A,#1B5E20);border-radius:8px;"></div>
-                <div>
-                  <div class="ps-row-title">Frag Tank Setup — Propagation Lab</div>
-                  <div class="ps-row-meta">by fraghouse_miami</div>
-                  <div style="display:flex;gap:4px;margin-top:4px;">
-                    <span class="ps-tag">Frags</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <video src="uploads/plugin-showcase.mov" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:top;"></video>
           </div>
 
           <!-- Siropu Ad Manager -->
           <div class="preview-screen" id="plugin-siropu">
-            <div class="ps-nav"><span class="ps-nav-title">Latest Posts</span></div>
-            <div class="ps-body">
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#2196F3,#0d47a1);"></div>
-                <div><div class="ps-row-title">New SPS coral — finally got it to open!</div><div class="ps-row-meta">reef_dave · 4 min ago</div></div>
-              </div>
-              <div class="ps-ad">📢 Sponsored · Marine Depot Sale</div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#4CAF50,#1b5e20);"></div>
-                <div><div class="ps-row-title">DSM tuning baseline pull results</div><div class="ps-row-meta">boost_kyle · 12 min ago</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,var(--orange),#b34700);"></div>
-                <div><div class="ps-row-title">Gameday thread — UM vs FSU</div><div class="ps-row-meta">canes_mod · 1 hr ago</div></div>
-              </div>
-              <div class="ps-ad">📢 Sponsored · BRS Aquatics</div>
-            </div>
+            <img src="uploads/plugin-siropu.png" alt="Siropu native ads">
           </div>
 
           <!-- Publift / Fuse Ads -->
           <div class="preview-screen" id="plugin-publift">
-            <div class="ps-nav"><span class="ps-nav-title">Latest Posts</span></div>
-            <div class="ps-body">
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#9C27B0,#4a148c);"></div>
-                <div><div class="ps-row-title">Weekly photography showcase</div><div class="ps-row-meta">photog_jen · 2 hr ago</div></div>
-              </div>
-              <div style="background:linear-gradient(135deg,#1a237e,#283593);border-radius:6px;padding:12px;margin:2px 0;text-align:center;">
-                <div style="font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Powered by Publift</div>
-                <div style="font-size:11px;font-weight:700;color:var(--white);">Premium Native Ad Unit</div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.65);margin-top:3px;">Interscroller · High CPM</div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#00897B,#004D40);"></div>
-                <div><div class="ps-row-title">Top DSM builds of 2025</div><div class="ps-row-meta">Staff pick · 2.1k views</div></div>
-              </div>
-              <div class="ps-row">
-                <div class="ps-thumb" style="background:linear-gradient(135deg,#F57C00,#E65100);"></div>
-                <div><div class="ps-row-title">Recruiting update: Spring transfers</div><div class="ps-row-meta">5.4k views</div></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- nobita Members Only -->
-          <div class="preview-screen" id="plugin-nobita">
-            <div class="ps-nav"><span class="ps-nav-title">Premium Content</span></div>
-            <div class="ps-body" style="padding:0;gap:0;">
-              <div style="background:var(--white);border-radius:8px;margin:12px 12px 0;overflow:hidden;">
-                <div style="height:60px;background:linear-gradient(135deg,#1a237e,#283593);display:flex;align-items:flex-end;padding:8px 10px;">
-                  <div style="font-size:11px;font-weight:700;color:var(--white);">Subscriber-only thread preview</div>
-                </div>
-                <div style="padding:8px 10px;font-size:10px;color:#555;line-height:1.4;">Full analysis of the spring signing class, depth chart projections, and staff takes...</div>
-              </div>
-              <div class="ps-lock">
-                <div class="ps-lock-icon">🔒</div>
-                <div class="ps-lock-title">Members Only</div>
-                <div class="ps-lock-body">This content is available to Premium subscribers. Upgrade to unlock full access to exclusive threads, early news, and insider content.</div>
-                <div class="ps-lock-btn">Upgrade — $4.99/mo</div>
-              </div>
-            </div>
+            <img src="uploads/plugin-publift.png" alt="Publift native ads">
           </div>
 
           <!-- Custom Plugin -->
@@ -821,7 +396,7 @@ In your Users pockets.</h1>
     <div class="plugins-cta reveal">
       <strong>Don't see your plugin?</strong> We work with forum operators to scope and integrate community-specific 
       add-ons. Bring us your plugin list and we'll tell you exactly what's supported and what we can build.
-      <a href="#" style="color:var(--orange);margin-left:8px;font-weight:600;">Talk to us &rarr;</a>
+      <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nathan-tryforumly/30min?primary_color=fe7f2d'});return false;" style="color:var(--orange);margin-left:8px;font-weight:600;">Talk to us &rarr;</a>
     </div>
   </div>
 </section>
@@ -981,7 +556,7 @@ In your Users pockets.</h1>
       <p class="lead lead--white" style="max-width:400px;margin:0 auto 36px;">
         30 days from call to live app. No long-term contracts.
       </p>
-      <a href="#" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
+      <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nathan-tryforumly/30min?primary_color=fe7f2d'});return false;" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
       <div style="margin-top:40px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
         <div style="text-align:center;">
           <div style="font-family:var(--font-display);font-size:36px;font-weight:800;color:var(--yellow);">4.8&#9733;</div>
@@ -1145,5 +720,6 @@ document.getElementById('playBtn') && document.getElementById('playBtn').addEven
 })();
 
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </body>
 </html>

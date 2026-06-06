@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forumly — Native Apps for XenForo Communities</title>
 <meta name="description" content="Forumly turns any XenForo community into a polished native iOS &amp; Android app in 30 days. More engagement, more revenue, direct channel ownership.">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <link rel="stylesheet" href="css/forumly.css">
 <link rel="stylesheet" href="css/index.css">
 <link id="gfont-Poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap">
@@ -30,7 +31,7 @@
           live in 30 days. Own your channel. Stop losing members to bad mobile experiences.
         </p>
         <div class="hero-ctas">
-          <a href="#" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
+          <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nathan-tryforumly/30min?primary_color=fe7f2d'});return false;" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
           <a href="product.html" class="btn btn-outline--dark btn-lg">See How It Works</a>
         </div>
       </div>
@@ -160,7 +161,16 @@
       <div class="carousel-fade">
         <div class="carousel-track" id="carouselTrack">
           <div class="carousel-item">
-            <div class="phone phone--lg"><img src="uploads/pasted-1780509333627-0.png" alt="User profile screen"></div>
+            <div class="phone phone--lg"><img src="uploads/home_main_feed.png" alt="Main feed screen"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/home_thread.png" alt="Thread screen"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/home_forums.png" alt="Forums screen"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/home_profile.png" alt="User profile screen"></div>
           </div>
           <div class="carousel-item">
             <div class="phone phone--lg"><img src="uploads/pasted-1780509312241-0.png" alt="Chats list screen"></div>
@@ -169,7 +179,13 @@
             <div class="phone phone--lg"><img src="uploads/pasted-1780509300021-0.png" alt="Direct message screen"></div>
           </div>
           <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/product_push_notification.png" alt="Push notification screen"></div>
+          </div>
+          <div class="carousel-item">
             <div class="phone phone--lg"><img src="uploads/pasted-1780509319614-0.png" alt="Search screen"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="phone phone--lg"><img src="uploads/product_easy_posting.png" alt="Easy posting screen"></div>
           </div>
         </div>
       </div>
@@ -212,7 +228,7 @@
         No long-term contracts. Live in 30 days.
       </p>
       <div class="final-cta-btns">
-        <a href="#" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
+        <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nathan-tryforumly/30min?primary_color=fe7f2d'});return false;" class="btn btn-primary btn-lg">Book a Demo &rarr;</a>
         <a href="pricing.html" class="btn btn-outline--dark btn-lg">See Pricing</a>
       </div>
     </div>
@@ -222,6 +238,7 @@
 <!-- ── Footer ── -->
 <script src="partials/footer.js"></script>
 
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script src="js/nav.js"></script>
 <script>
 (function () {
