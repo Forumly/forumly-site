@@ -160,6 +160,8 @@
 }
 
 /* ── 2x Guarantee ── */
+.guarantee-stats-2x { display: none; }
+
 .guarantee-block {
   position: relative;
   overflow: hidden;
@@ -258,15 +260,25 @@
   .included-grid { grid-template-columns: 1fr 1fr; }
   .guarantee-block { grid-template-columns: 1fr; padding: 40px 28px; }
   .guarantee-block::before { display: none; }
+  .guarantee-num { display: none; }
+  .guarantee-stats { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+  .guarantee-stats-2x { display: block; }
   .pricing-cards { grid-template-columns: 1fr; }
   .partner-features { grid-template-columns: 1fr; }
   .alt-path { grid-template-columns: 1fr; padding: 40px 28px; gap: 32px; }
   .pricing-steps { grid-template-columns: 1fr 1fr; }
+  .pricing-comparison-sec .wrap { overflow-x: hidden; }
 }
 @media (max-width: 520px) {
   .pricing-steps { grid-template-columns: 1fr; }
-  .comparison-table { font-size: 13px; }
-  .comparison-table th, .comparison-table td { padding: 14px 12px; }
+  .comparison-table {
+    font-size: 11px;
+    table-layout: fixed;
+    width: 100%;
+  }
+  .comparison-table th, .comparison-table td { padding: 10px 5px; }
+  .comparison-table th { font-size: 9px; letter-spacing: 0.06em; }
+  .comparison-table td.val--orange { font-size: 13px; }
   .included-grid { grid-template-columns: 1fr; }
   .included-section { padding: 28px 20px; }
 }

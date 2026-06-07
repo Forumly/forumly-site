@@ -76,6 +76,23 @@
 
     </div>
 
+    <!-- Ad-free option (under No Upfront) -->
+    <div class="alt-path reveal">
+      <div>
+        <span class="eyebrow">Premium communities</span>
+        <h3 class="heading-2" style="color:var(--white);margin-top:16px;margin-bottom:16px;">
+          Ad-Free Communities
+        </h3>
+        <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.7;margin-bottom:24px;">Running a private or subscriber-supported community where ads don't fit? A flat monthly rate covers everything from launching the apps, updates, support, and ongoing development. No revenue share. </p>
+        <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nathan-tryforumly/30min?primary_color=fe7f2d'});return false;" class="btn btn-outline">Talk to Us &rarr;</a>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-size:clamp(52px,7vw,88px);font-weight:800;color:var(--yellow);line-height:1;">$1,000</div>
+        <div style="font-size:15px;color:rgba(255,255,255,0.55);margin-top:8px;font-weight:500;">per month, flat rate</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;">Hosting · Updates · Support · All included</div>
+      </div>
+    </div>
+
     <!-- 2x Guarantee -->
     <div class="guarantee-block reveal">
       <div style="position:relative;z-index:1;">
@@ -84,7 +101,7 @@
           If we don't at least double your mobile ARPU — we take nothing.
         </h2>
         <p style="color:rgba(255,255,255,0.65);font-size:16px;line-height:1.72;max-width:520px;margin-bottom:28px;">Our 2× Guarantee is simple: if the app doesn't generate at least twice your current mobile ad revenue per user, our revenue share drops to 0% until it does. We don't earn until you're winning. We believe this keeps us aligned as partners.</p>
-        <div style="display:flex;gap:32px;flex-wrap:wrap;">
+        <div class="guarantee-stats" style="display:flex;gap:32px;flex-wrap:wrap;">
           <div>
             <div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--yellow);">50 / 50</div>
             <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Revenue split</div>
@@ -96,6 +113,10 @@
           <div>
             <div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--yellow);">Always</div>
             <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Aligned incentives</div>
+          </div>
+          <div class="guarantee-stats-2x">
+            <div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--yellow);">2&times;</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Guarantee</div>
           </div>
         </div>
       </div>
@@ -143,25 +164,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Ad-free option -->
-    <div class="alt-path reveal">
-      <div>
-        <span class="eyebrow">Premium communities</span>
-        <h3 class="heading-2" style="color:var(--white);margin-top:16px;margin-bottom:16px;">
-          Ad-Free Communities
-        </h3>
-        <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.7;margin-bottom:24px;">Running a private or subscriber-supported community where ads don't fit? A flat monthly rate covers everything from launching the apps, updates, support, and ongoing development. No revenue share. </p>
-        <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nathan-tryforumly/30min?primary_color=fe7f2d'});return false;" class="btn btn-outline">Talk to Us &rarr;</a>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-family:var(--font-display);font-size:clamp(52px,7vw,88px);font-weight:800;color:var(--yellow);line-height:1;">$1,000</div>
-        <div style="font-size:15px;color:rgba(255,255,255,0.55);margin-top:8px;font-weight:500;">per month, flat rate</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;">Hosting · Updates · Support · All included</div>
-      </div>
-    </div>
-
-
 
   </div>
 </section>
@@ -213,7 +215,7 @@
 </section>
 
 <!-- ── Comparison ── -->
-<section class="sec" data-screen-label="Comparison">
+<section class="sec pricing-comparison-sec" data-screen-label="Comparison">
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow eyebrow--dark">The math</span>
@@ -225,41 +227,41 @@
         <thead>
           <tr>
             <th>Metric</th>
-            <th>Mobile Web (today)</th>
-            <th>Native App (Forumly)</th>
-            <th>Your 50% Share</th>
+            <th>Mobile Web</th>
+            <th>Forumly App</th>
+            <th>Your 50%</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Revenue per user / month</td>
+            <td>Revenue / user / mo</td>
             <td class="val">~$0.05</td>
             <td class="val val--green">~$0.15+</td>
             <td class="val val--orange">$0.075+</td>
           </tr>
           <tr class="row-highlight">
             <td>Ad viewability</td>
-            <td class="val">63% (IAS) </td>
-            <td class="val val--green">86% (IAS 2024)</td>
+            <td class="val">63%</td>
+            <td class="val val--green">86%</td>
             <td>Ads are seen</td>
           </tr>
           <tr>
-            <td>Sessions per user</td>
+            <td>Sessions / user</td>
             <td class="val">Baseline</td>
-            <td class="val val--green">6-12× more sessions/user</td>
-            <td>More inventory to serve</td>
+            <td class="val val--green">6–12× more</td>
+            <td>More inventory</td>
           </tr>
           <tr class="row-highlight">
-            <td>Ad format quality</td>
-            <td class="val">Display / banner</td>
-            <td class="val val--green">Rewarded / banner / Interstitial</td>
+            <td>Ad format</td>
+            <td class="val">Banner only</td>
+            <td class="val val--green">Rewarded + banner</td>
             <td>Stronger CPMs</td>
           </tr>
           <tr>
-            <td>Browser ad blockers</td>
-            <td class="val" style="color:#233d4d;"><span style="color:#233d4d;">Significant impact</span></td>
+            <td>Ad blockers</td>
+            <td class="val" style="color:#233d4d;"><span style="color:#233d4d;">Big impact</span></td>
             <td class="val val--green">None</td>
-            <td>More impressions served</td>
+            <td>More impressions</td>
           </tr>
         </tbody>
       </table>

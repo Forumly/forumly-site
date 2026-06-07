@@ -103,9 +103,16 @@
   <div class="wrap">
     <div class="partners-inner">
       <span class="partner-lede">Trusted by</span>
-      <a href="https://reef2reef.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#FF6F1E;">Reef2Reef</a>
-      <a href="https://dsmtuners.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#BB0000;">DSMtuners</a>
-      <a href="https://www.canesinsight.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#DF7942;">CanesInsight</a>
+      <div class="partner-scroll-wrap">
+        <div class="partner-scroll-inner">
+          <a href="https://reef2reef.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#FF6F1E;">Reef2Reef</a>
+          <a href="https://dsmtuners.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#BB0000;">DSMtuners</a>
+          <a href="https://www.canesinsight.com/" target="_blank" rel="noopener" class="partner-name" style="--brand-color:#DF7942;">CanesInsight</a>
+          <a href="https://reef2reef.com/" target="_blank" rel="noopener" class="partner-name partner-clone" style="--brand-color:#FF6F1E;" aria-hidden="true">Reef2Reef</a>
+          <a href="https://dsmtuners.com/" target="_blank" rel="noopener" class="partner-name partner-clone" style="--brand-color:#BB0000;" aria-hidden="true">DSMtuners</a>
+          <a href="https://www.canesinsight.com/" target="_blank" rel="noopener" class="partner-name partner-clone" style="--brand-color:#DF7942;" aria-hidden="true">CanesInsight</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -299,19 +306,81 @@
 <script>
 (function () {
   var track = document.getElementById('carouselTrack');
-  var prev  = document.getElementById('carouselPrev');
-  var next  = document.getElementById('carouselNext');
+  var prevBtn = document.getElementById('carouselPrev');
+  var nextBtn = document.getElementById('carouselNext');
   if (!track) return;
 
-  function scrollBy(dir) {
-    var item = track.querySelector('.carousel-item');
-    if (!item) return;
+  var originals = Array.from(track.querySelectorAll('.carousel-item'));
+  var n = originals.length;
+
+  // Clone all items for seamless looping
+  originals.forEach(function (item) {
+    var clone = item.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
+
+  var current = 0;
+  var isJumping = false;
+
+  function itemW() {
     var gap = parseInt(getComputedStyle(track).gap) || 24;
-    track.scrollBy({ left: dir * (item.offsetWidth + gap), behavior: 'smooth' });
+    return originals[0].offsetWidth + gap;
   }
 
-  next.addEventListener('click', function () { scrollBy(1); });
-  prev.addEventListener('click', function () { scrollBy(-1); });
+  function goTo(index, animate) {
+    isJumping = !animate;
+    track.style.scrollBehavior = animate ? 'smooth' : 'auto';
+    track.scrollLeft = index * itemW();
+    if (animate) setTimeout(function () { isJumping = false; }, 400);
+    current = index;
+  }
+
+  // Start at first item
+  goTo(0, false);
+
+  nextBtn.addEventListener('click', function () {
+    var next = current + 1;
+    if (next >= n) {
+      // Scroll to clone, then silently jump to real item
+      track.style.scrollBehavior = 'smooth';
+      track.scrollLeft = next * itemW();
+      current = next;
+      setTimeout(function () { goTo(0, false); }, 420);
+    } else {
+      goTo(next, true);
+    }
+  });
+
+  prevBtn.addEventListener('click', function () {
+    if (current <= 0) {
+      // Jump to last clone position, then scroll back
+      goTo(n, false);
+      setTimeout(function () { goTo(n - 1, true); }, 50);
+    } else {
+      goTo(current - 1, true);
+    }
+  });
+
+  // Auto-advance every 3.5 seconds
+  var autoTimer = setInterval(function () {
+    var next = current + 1;
+    if (next >= n) {
+      track.style.scrollBehavior = 'smooth';
+      track.scrollLeft = next * itemW();
+      current = next;
+      setTimeout(function () { goTo(0, false); }, 420);
+    } else {
+      goTo(next, true);
+    }
+  }, 3500);
+
+  // Pause auto-advance on user interaction
+  [prevBtn, nextBtn].forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      clearInterval(autoTimer);
+    });
+  });
 })();
 </script>
 </body>
