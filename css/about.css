@@ -51,7 +51,7 @@
 }
 .value-card--mission { background: var(--dark); color: var(--white); border-color: transparent; }
 .value-card--vision { background: var(--teal); color: var(--white); border-color: transparent; }
-.value-card--values { background: #a1c181; color: var(--dark); }
+.value-card--values { background: #7aaa5a; color: var(--white); border-color: transparent; }
 .value-tag {
   font-size: 11px;
   font-weight: 700;
@@ -62,10 +62,12 @@
   opacity: 0.6;
 }
 .value-card--mission .value-tag,
-.value-card--vision .value-tag { color: var(--yellow); opacity: 1; }
+.value-card--vision .value-tag,
+.value-card--values .value-tag { color: var(--yellow); opacity: 1; }
 .value-body { font-size: 15px; line-height: 1.65; }
 .value-card--mission .value-body,
-.value-card--vision .value-body { color: rgba(255,255,255,0.8); }
+.value-card--vision .value-body,
+.value-card--values .value-body { color: rgba(255,255,255,0.8); }
 
 /* ── Testimonial callout ── */
 .about-quote {

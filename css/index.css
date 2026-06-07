@@ -108,19 +108,6 @@
 .benefit h3 { font-size: clamp(16px,1.4vw,19px); font-weight:700; margin-bottom:10px; color:var(--dark); }
 .benefit p  { font-size:14.5px; color:var(--muted); line-height:1.68; }
 
-/* ── Stats bar ── */
-.stats-bar { padding: 72px 0; }
-.stats-inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.stat-cell {
-  padding: 0 32px;
-  border-right: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-}
-.stat-cell:last-child { border-right: none; }
-
 /* ── Screenshot Carousel ── */
 .screenshot-carousel {
   position: relative;
@@ -275,10 +262,6 @@
   .problem-grid { grid-template-columns: 1fr; gap: 12px; }
   .problem-col { border-radius: var(--r-md) !important; border: 1px solid rgba(255,255,255,0.08) !important; }
   .benefits-row { grid-template-columns: 1fr 1fr; gap: 32px 28px; }
-  .stats-inner { grid-template-columns: 1fr 1fr; }
-  .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0; }
-  .stat-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
-  .stat-cell:last-child, .stat-cell:nth-last-child(2):nth-child(odd) { border-bottom: none; }
   .steps-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .steps-grid::after { display: none; }
   .step { padding: 0; }
@@ -286,8 +269,7 @@
 }
 @media (max-width: 520px) {
   .steps-grid { grid-template-columns: 1fr; }
-  .stats-inner { grid-template-columns: 1fr; }
-  .stat-cell { border-right: none !important; }
+  /* Stats stay on one row — no override needed */
   /* Equal-width hero CTAs */
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .hero-ctas .btn { justify-content: center; }
