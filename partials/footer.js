@@ -26,7 +26,6 @@ document.currentScript.insertAdjacentHTML('beforebegin',
       '</div>' +
       '<div class="footer-bottom">' +
         '<span>&copy; 2026 Forumly. All rights reserved.</span>' +
-        '<span>Built for the communities that matter.</span>' +
       '</div>' +
     '</div>' +
   '</footer>'
