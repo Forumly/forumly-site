@@ -54,9 +54,9 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--yellow);
-  background: rgba(252,202,70,0.12);
-  border: 1px solid rgba(252,202,70,0.25);
+  color: #619b8a;
+  background: rgba(97,155,138,0.12);
+  border: 1px solid rgba(97,155,138,0.25);
   padding: 4px 10px;
   border-radius: 3px;
 }
