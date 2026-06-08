@@ -58,6 +58,83 @@
   margin: 28px 0;
 }
 
+/* ── Model intro paragraphs ── */
+.model-intro {
+  margin-bottom: 40px;
+}
+.model-intro p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+.model-intro p:last-child { margin-bottom: 0; }
+
+/* ── Model split card ── */
+.model-split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+.model-split-half {
+  padding: 40px 44px;
+}
+.model-split-divider {
+  width: 1px;
+  background: var(--border);
+  margin: 32px 0;
+}
+.model-split-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.model-split-price {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+.model-split-price--teal { color: var(--teal); }
+.model-split-price--sm { font-size: clamp(32px, 4vw, 48px); }
+.model-split-body {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── Model disclaimer ── */
+.model-disclaimer {
+  margin-top: 16px;
+  padding: 18px 24px;
+  background: rgba(0,0,0,0.03);
+  border-radius: var(--r-lg);
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── Model alignment text ── */
+.model-alignment {
+  margin-top: 32px;
+  padding: 24px 32px;
+  background: var(--white);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  font-size: 15px;
+  color: var(--dark);
+  line-height: 1.7;
+}
+
 /* ── Partner program ── */
 .partner-features {
   display: grid;
@@ -257,6 +334,9 @@
 .ps-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
 @media (max-width: 860px) {
+  .model-split { grid-template-columns: 1fr; }
+  .model-split-divider { width: auto; height: 1px; margin: 0 32px; }
+  .model-split-half { padding: 32px 28px; }
   .included-grid { grid-template-columns: 1fr 1fr; }
   .guarantee-block { grid-template-columns: 1fr; padding: 40px 28px; }
   .guarantee-block::before { display: none; }
@@ -266,6 +346,7 @@
   .pricing-cards { grid-template-columns: 1fr; }
   .partner-features { grid-template-columns: 1fr; }
   .alt-path { grid-template-columns: 1fr; padding: 40px 28px; gap: 32px; }
+  .alt-path-cta { display: block; text-align: center; }
   .pricing-steps { grid-template-columns: 1fr 1fr; }
   .pricing-comparison-sec .wrap { overflow-x: hidden; }
 }
