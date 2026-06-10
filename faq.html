@@ -435,5 +435,12 @@ window.addEventListener('scroll', function() {
 }, { passive: true });
 </script>
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script>
+window.addEventListener("message", function(e) {
+  if (e.data.event && e.data.event === "calendly.event_scheduled") {
+    gtag('event', 'manual_event_SUBMIT_LEAD_FORM');
+  }
+});
+</script>
 </body>
 </html>
