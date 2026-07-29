@@ -41,10 +41,10 @@ Forumly is the fastest and most complete solution for XenForo forum owners who w
 ## Pages
 
 - [Home](https://www.tryforumly.com/) — Overview, value proposition, partner communities
-- [Product](https://www.tryforumly.com/product.html) — Full feature breakdown
-- [Pricing](https://www.tryforumly.com/pricing.html) — Revenue model details and 2× guarantee
-- [About](https://www.tryforumly.com/about.html) — Company story and mission
-- [FAQ](https://www.tryforumly.com/faq.html) — Common questions from forum operators
+- [Product](https://www.tryforumly.com/product) — Full feature breakdown
+- [Pricing](https://www.tryforumly.com/pricing) — Revenue model details and 2× guarantee
+- [About](https://www.tryforumly.com/about) — Company story and mission
+- [FAQ](https://www.tryforumly.com/faq) — Common questions from forum operators
 
 ## Partner communities
 
